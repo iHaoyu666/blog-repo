@@ -16,23 +16,31 @@
   <meta name="author" content="hhy">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Forever Young">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Haoyu&#39;s Notes">
-<meta property="og:url" content="http://example.com/index.html">
+    <meta name="description" content="###源代码 1234567891011121314151617from torch.utils.tensorboard import SummaryWriterimport numpy as npfrom PIL import Imagewriter &#x3D; SummaryWriter(&quot;logs&quot;)image_path &#x3D; &quot;data&#x2F;train&#x2F;ants_image">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pytorch深度学习2: Tensorboard的使用">
+<meta property="og:url" content="http://example.com/2023/08/09/pytorch%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A02-Tensorboard%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="Haoyu&#39;s Notes">
-<meta property="og:description" content="Forever Young">
+<meta property="og:description" content="###源代码 1234567891011121314151617from torch.utils.tensorboard import SummaryWriterimport numpy as npfrom PIL import Imagewriter &#x3D; SummaryWriter(&quot;logs&quot;)image_path &#x3D; &quot;data&#x2F;train&#x2F;ants_image">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-08-09T09:10:31.000Z">
+<meta property="article:modified_time" content="2023-08-09T11:38:37.116Z">
 <meta property="article:author" content="hhy">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Haoyu&#39;s Notes</title>
+  <title>pytorch深度学习2: Tensorboard的使用 - Haoyu&#39;s Notes</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 
@@ -122,7 +130,7 @@
   <header>
     
 
-<div class="header-inner" style="height: 100vh;">
+<div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -228,17 +236,53 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="我曾七次鄙视自己的灵魂"></span>
+            <span id="subtitle" data-typed-text="pytorch深度学习2: Tensorboard的使用"></span>
           
         </div>
 
         
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-08-09 17:10" pubdate>
+          2023年8月9日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          758 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          7 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
       </div>
 
-      
-        <div class="scroll-down-bar">
-          <i class="iconfont icon-arrowdown"></i>
-        </div>
       
     </div>
   </div>
@@ -250,131 +294,174 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div id="board"
-          style="margin-top: 0">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">pytorch深度学习2: Tensorboard的使用</h1>
+            
+              <p class="note note-info">
                 
-
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2023/08/09/pytorch%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A02-Tensorboard%E7%9A%84%E4%BD%BF%E7%94%A8/" target="_self">
-          pytorch深度学习2: Tensorboard的使用
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/09/pytorch%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A02-Tensorboard%E7%9A%84%E4%BD%BF%E7%94%A8/" target="_self">
-        <div>
-          ###源代码 1234567891011121314151617from torch.utils.tensorboard import SummaryWriterimport numpy as npfrom PIL import Imagewriter = SummaryWriter(&quot;logs&quot;)image_path = &quot;data/train/ants_image
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-08-09 17:10" pubdate>
-              2023-08-09
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2023/08/09/pytorch%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A01%EF%BC%9ADataset%E7%B1%BB/" target="_self">
-          pytorch深度学习1：Dataset类
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/09/pytorch%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A01%EF%BC%9ADataset%E7%B1%BB/" target="_self">
-        <div>
-          来自于 b 站《PyTorch 深度学习快速入门教程（绝对通俗易懂！）【小土堆】》 本篇内容主要是对代码中的一些小知识点进行归纳总结，以便复习 下面是主要代码 123456789101112131415161718192021222324252627282930313233343536from torch.utils.data import Dataset    #引入Dataset类from P
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-08-09 17:09" pubdate>
-              2023-08-09
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
+                  
+                    本文最后更新于：2023年8月9日 晚上
+                  
+                
+              </p>
             
-              <a href="/tags/PyTorch/">#PyTorch</a>
             
-          </div>
-        
-      </div>
-    </article>
-  </div>
+              <div class="markdown-body">
+                
+                <p>###源代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> torch.utils.tensorboard <span class="hljs-keyword">import</span> SummaryWriter<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image<br><br>writer = SummaryWriter(<span class="hljs-string">&quot;logs&quot;</span>)<br>image_path = <span class="hljs-string">&quot;data/train/ants_image/6240329_72c01e663e.jpg&quot;</span><br>img_PIL = Image.<span class="hljs-built_in">open</span>(image_path)<br>img_array = np.array(img_PIL)<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(img_array))<br><span class="hljs-built_in">print</span>(img_array.shape)<br><br>writer.add_image(<span class="hljs-string">&quot;train&quot;</span>, img_array, <span class="hljs-number">1</span>, dataformats=<span class="hljs-string">&#x27;HWC&#x27;</span>)  <span class="hljs-comment"># 此处注意dataformats需要和图片的对应</span><br><span class="hljs-comment"># y = 2x</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">100</span>):<br>    writer.add_scalar(<span class="hljs-string">&quot;y=2x&quot;</span>, <span class="hljs-number">3</span>*i, i)<br><br>writer.close()<br></code></pre></td></tr></table></figure>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2023/08/06/%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0%E5%B0%8F%E4%BD%95%E5%90%8C%E5%AD%A6%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%81/" target="_self">
-          欢迎来到小何同学的博客！
-        </a>
-      </h2>
+<p>###流程<br>创建 SummaryWriter 类，传入 logs 文件输出地址<br>图片文件地址<br>Image 类打开图片文件<br>将 Image 类转换 numpy 格式<br>SummaryWriter 类加载 numpy 格式图片<br>画图<br>关闭 SummaryWriter 流</p>
+<p>###运行方式<br>打开 anaconda prompt，输入</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">conda <span class="hljs-built_in">activate</span> pytorch<br></code></pre></td></tr></table></figure>
 
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/06/%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0%E5%B0%8F%E4%BD%95%E5%90%8C%E5%AD%A6%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%81/" target="_self">
-        <div>
-          大家好，我是何昊宇，现就读于南京大学 目前主要研究兴趣是 CV 和 DL 在这里我将分享我的学习笔记与心得体会
-        </div>
-      </a>
+<p>进入 pytorch 环境下 ，输入</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">tensorboard <span class="hljs-params">--logdir</span> <span class="hljs-string">&quot;文件夹绝对地址&quot;</span> <span class="hljs-params">--port=6007</span><span class="hljs-params">(optional)</span><br></code></pre></td></tr></table></figure>
 
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-08-06 17:56" pubdate>
-              2023-08-06
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
+<p>然后进入 <a target="_blank" rel="noopener" href="http://localhost:6006/">http://localhost:6006/</a> 查看图片和曲线</p>
 
-
-
-
-
+                
               </div>
-            </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>pytorch深度学习2: Tensorboard的使用</div>
+      <div>http://example.com/2023/08/09/pytorch深度学习2-Tensorboard的使用/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>hhy</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年8月9日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
           </div>
         </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/08/09/pytorch%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A01%EF%BC%9ADataset%E7%B1%BB/" title="pytorch深度学习1：Dataset类">
+                        <span class="hidden-mobile">pytorch深度学习1：Dataset类</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
       </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
     
 
     
@@ -498,6 +585,99 @@
 
 
 
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
 
   <script  src="/js/local-search.js" ></script>
 
