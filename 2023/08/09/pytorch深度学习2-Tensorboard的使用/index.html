@@ -16,15 +16,15 @@
   <meta name="author" content="hhy">
   <meta name="keywords" content="">
   
-    <meta name="description" content="###源代码 1234567891011121314151617from torch.utils.tensorboard import SummaryWriterimport numpy as npfrom PIL import Imagewriter &#x3D; SummaryWriter(&quot;logs&quot;)image_path &#x3D; &quot;data&#x2F;train&#x2F;ants_image">
+    <meta name="description" content="源代码： 1234567891011121314151617from torch.utils.tensorboard import SummaryWriterimport numpy as npfrom PIL import Imagewriter &#x3D; SummaryWriter(&quot;logs&quot;)image_path &#x3D; &quot;data&#x2F;train&#x2F;ants_image&#x2F;6">
 <meta property="og:type" content="article">
 <meta property="og:title" content="pytorch深度学习2: Tensorboard的使用">
 <meta property="og:url" content="http://example.com/2023/08/09/pytorch%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A02-Tensorboard%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="Haoyu&#39;s Notes">
-<meta property="og:description" content="###源代码 1234567891011121314151617from torch.utils.tensorboard import SummaryWriterimport numpy as npfrom PIL import Imagewriter &#x3D; SummaryWriter(&quot;logs&quot;)image_path &#x3D; &quot;data&#x2F;train&#x2F;ants_image">
+<meta property="og:description" content="源代码： 1234567891011121314151617from torch.utils.tensorboard import SummaryWriterimport numpy as npfrom PIL import Imagewriter &#x3D; SummaryWriter(&quot;logs&quot;)image_path &#x3D; &quot;data&#x2F;train&#x2F;ants_image&#x2F;6">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-08-09T09:10:31.000Z">
-<meta property="article:modified_time" content="2023-08-09T11:38:37.116Z">
+<meta property="article:modified_time" content="2023-08-09T11:49:19.804Z">
 <meta property="article:author" content="hhy">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -259,7 +259,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          758 字
+          752 字
         
       </span>
     
@@ -320,11 +320,13 @@
             
               <div class="markdown-body">
                 
-                <p>###源代码</p>
+                <p>源代码：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> torch.utils.tensorboard <span class="hljs-keyword">import</span> SummaryWriter<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image<br><br>writer = SummaryWriter(<span class="hljs-string">&quot;logs&quot;</span>)<br>image_path = <span class="hljs-string">&quot;data/train/ants_image/6240329_72c01e663e.jpg&quot;</span><br>img_PIL = Image.<span class="hljs-built_in">open</span>(image_path)<br>img_array = np.array(img_PIL)<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(img_array))<br><span class="hljs-built_in">print</span>(img_array.shape)<br><br>writer.add_image(<span class="hljs-string">&quot;train&quot;</span>, img_array, <span class="hljs-number">1</span>, dataformats=<span class="hljs-string">&#x27;HWC&#x27;</span>)  <span class="hljs-comment"># 此处注意dataformats需要和图片的对应</span><br><span class="hljs-comment"># y = 2x</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">100</span>):<br>    writer.add_scalar(<span class="hljs-string">&quot;y=2x&quot;</span>, <span class="hljs-number">3</span>*i, i)<br><br>writer.close()<br></code></pre></td></tr></table></figure>
 
-<p>###流程<br>创建 SummaryWriter 类，传入 logs 文件输出地址<br>图片文件地址<br>Image 类打开图片文件<br>将 Image 类转换 numpy 格式<br>SummaryWriter 类加载 numpy 格式图片<br>画图<br>关闭 SummaryWriter 流</p>
-<p>###运行方式<br>打开 anaconda prompt，输入</p>
+<p>流程：</p>
+<p>创建 SummaryWriter 类，传入 logs 文件输出地址<br>图片文件地址<br>Image 类打开图片文件<br>将 Image 类转换 numpy 格式<br>SummaryWriter 类加载 numpy 格式图片<br>画图<br>关闭 SummaryWriter 流</p>
+<p>运行方式：</p>
+<p>打开 anaconda prompt，输入</p>
 <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">conda <span class="hljs-built_in">activate</span> pytorch<br></code></pre></td></tr></table></figure>
 
 <p>进入 pytorch 环境下 ，输入</p>
@@ -392,6 +394,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2023/08/09/PyTorch%E5%AE%8C%E6%95%B4%E7%AC%94%E8%AE%B0/" title="PyTorch完整笔记">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">PyTorch完整笔记</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">

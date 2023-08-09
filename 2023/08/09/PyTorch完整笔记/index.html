@@ -1,0 +1,1167 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="hhy">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="文章目录   一、PyTorch环境的配置及安装二、Pycharm、jupyter的安装1. Pycharm2.jupyter    三、Pyt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PyTorch完整笔记">
+<meta property="og:url" content="http://example.com/2023/08/09/PyTorch%E5%AE%8C%E6%95%B4%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Haoyu&#39;s Notes">
+<meta property="og:description" content="文章目录   一、PyTorch环境的配置及安装二、Pycharm、jupyter的安装1. Pycharm2.jupyter    三、Pyt">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/c7279fe414a24eb3a9967587c182d943.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/c7bffcba67174cf198d1442add8312c0.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/05a505d8963f4e57b74aa693cd57c06e.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/0f2a577be008433dbeac3c203534d8ba.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/373021fd58014914b34a8c2d12531bd8.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/5a9f2228b0b54ee9bd2b3c9d70febe4c.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/a9135ddaa79746888eb0932a4f39f95b.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/aef53b761331401e93b9ff49da43ff94.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/1b158f209c324ad4a0583e0168bf760d.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/efda402c39504573b27164a750a75bf3.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/3798da530cf44f43baf465480cd2d66e.png">
+<meta property="og:image" content="https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/56359c84655541d8a39f15be7a33c38b.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/74e3a450a61e45eb97f8bbba49fd016b.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/f574b2d5d4794b3ca4475c20f2268954.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/92414a402a0449918da45cb1c8f231c6.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/fda4b62c305b4806bb552197955a0461.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/e6ef9d73fbaf40599ff9e156e899d28f.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/f045b0e65be04acfa339fb2cf330e31c.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/015068e480e54059ab49df4b2ff87d11.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/69e573b9e902420b84a77ccda89b8d9b.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/95daa6a6747c433ab3e5b478993b3ea3.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/86317b030cd043c3babd8a6e2363d3bd.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/47bd93730fc044e7b0f1d42ad8c89cb2.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/763cf5f7d09043f3b72f352c33118384.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/77025205484340efb28f10bd2234a0ba.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/0f840e1b8db74921942c13a91068c9a9.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/56f18e9e64074c19b333bd3bafd120ee.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/deac499ac6ac4cfba2a0c66ee9f0c13a.png">
+<meta property="og:image" content="https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png">
+<meta property="og:image" content="https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/788773addb0e4329aa30f321b7066e6e.png">
+<meta property="og:image" content="https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png">
+<meta property="og:image" content="https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png">
+<meta property="og:image" content="https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png">
+<meta property="og:image" content="https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png">
+<meta property="og:image" content="https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png">
+<meta property="og:image" content="https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png">
+<meta property="og:image" content="https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png">
+<meta property="og:image" content="https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/c2e22acbb0644a24aaf863432d5ce18d.png">
+<meta property="og:image" content="https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/022208fc454341fd9bb76b40fb71e7e2.png">
+<meta property="og:image" content="https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png">
+<meta property="og:image" content="https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png">
+<meta property="article:published_time" content="2023-08-09T11:56:14.000Z">
+<meta property="article:modified_time" content="2023-08-09T11:56:54.723Z">
+<meta property="article:author" content="hhy">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/c7279fe414a24eb3a9967587c182d943.png">
+  
+  
+  
+  <title>PyTorch完整笔记 - Haoyu&#39;s Notes</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"ad1a5e5f88443bec4eac294a460a655e","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?ad1a5e5f88443bec4eac294a460a655e";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', '');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Haoyu&#39;s Notes</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="PyTorch完整笔记"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-08-09 19:56" pubdate>
+          2023年8月9日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          47k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          392 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">PyTorch完整笔记</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2023年8月9日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <div id="article_content" class="article_content clearfix">
+        <link rel="stylesheet" href="https://csdnimg.cn/release/blogv2/dist/mdeditor/css/editerView/kdoc_html_views-1a98987dfd.css">
+        <link rel="stylesheet" href="https://csdnimg.cn/release/blogv2/dist/mdeditor/css/editerView/ck_htmledit_views-25cebea3f9.css">
+                <div id="content_views" class="markdown_views prism-atom-one-dark">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                        <path stroke-linecap="round" d="M5,0 0,2.5 5,5z" id="raphael-marker-block" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
+                    </svg>
+                    <p></p> 
+<div class="toc"> 
+ <h3><a name="t0"></a>文章目录</h3> 
+ <ul><li><a href="#PyTorch_8" target="_self">一、PyTorch环境的配置及安装</a></li><li><a href="#Pycharmjupyter_45" target="_self">二、Pycharm、jupyter的安装</a></li><li><ul><li><a href="#1_Pycharm_46" target="_self">1. Pycharm</a></li><li><a href="#2jupyter_51" target="_self">2.jupyter</a></li></ul> 
+  </li><li><a href="#Pythonhelpdir_60" target="_self">三、Python学习中的两大法宝函数（help、dir）</a></li><li><a href="#Dataset_65" target="_self">四、加载数据（Dataset）</a></li><li><a href="#TensorBorad_141" target="_self">五、TensorBorad的使用</a></li><li><a href="#Transformer_147" target="_self">六、Transformer</a></li><li><ul><li><a href="#1compose_153" target="_self">1.compose</a></li><li><a href="#2toTensor_155" target="_self">2.toTensor</a></li><li><a href="#3Normalize_161" target="_self">3.Normalize</a></li><li><a href="#4Resize_164" target="_self">4.Resize</a></li></ul> 
+  </li><li><a href="#torchvision_167" target="_self">七、torchvision中数据集的使用</a></li><li><ul><li><a href="#1torchvisiondatasets_180" target="_self">1.torchvision.datasets</a></li></ul> 
+  </li><li><a href="#dataloader_183" target="_self">八、dataloader</a></li><li><ul><li><a href="#nnmodule_187" target="_self">九、nn.module</a></li><li><a href="#_189" target="_self">十、卷积操作</a></li></ul> 
+  </li><li><a href="#_192" target="_self">十一、卷积层</a></li><li><a href="#_234" target="_self">十二、池化层</a></li><li><a href="#_273" target="_self">十三、非线性激活</a></li><li><a href="#_310" target="_self">十四、线性层</a></li><li><a href="#Sequential_343" target="_self">十五、Sequential</a></li><li><a href="#_381" target="_self">十六、损失函数和反向传播</a></li><li><ul><li><a href="#1_383" target="_self">1.损失函数</a></li><li><a href="#2_424" target="_self">2.反向传播及优化</a></li></ul> 
+  </li><li><a href="#_474" target="_self">十七、现有模型的使用及修改</a></li><li><a href="#_498" target="_self">十八、网络模型的保存和修改</a></li><li><ul><li><a href="#1_501" target="_self">1.保存</a></li><li><a href="#2_527" target="_self">2.读取</a></li></ul> 
+  </li><li><a href="#_560" target="_self">十九、完整的模型训练套路</a></li><li><a href="#GPU_656" target="_self">二十、利用GPU训练</a></li><li><a href="#_784" target="_self">二十一、完整的模型验证套路</a></li><li><a href="#_839" target="_self">总结</a></li></ul> 
+</div> 
+<p></p> 
+<hr> 
+<h1><a name="t1"></a><a id="PyTorch_8"></a>一、PyTorch环境的配置及安装</h1> 
+<p>1.官网下载最新版Anaconda，完成后打开Anaconda Prompt，显示（base）即安装成功<br> 2.<code>conda create -n pytorch python=3.6</code>建立一个命名为pytorch的环境，且环境python版本为3.6<br> 3.<code>conda activate pytorch</code>激活并进入pytorch这个环境;linux：source activate pytorch<br> 4.<code>pip list</code>来查看环境内安装了哪些包，可以发现并没有我们需要的pytorch<br> 5.打开<a target="_blank" rel="noopener" href="https://pytorch.org/get-started/locally/">PyTorch官网</a>，直接找到最新版pytorch指令<code>conda install pytorch torchvision torchaudio cudatoolkit=11.3 -c pytorch</code>（无脑最新版就完事了。。。。老版本调了半天，最后还出问题了），打开pytorch环境，输入指令下载安装<br> 6.检验是否安装成功。输入<code>python</code>，<code>import torch</code>不报错即pytorch安装成功。输入<code>torch.cuda.is_available()</code>,若返回True即机器显卡是可以被pytorch使用的（如失败，建议去英伟达官网下载更新驱动程序，并删除环境，使用各种最新版重新安装）。<br> 7.linux服务器安装时出现环境安装不到conda/envs下，而在.conda下，进行如下操作<br> <img src="https://img-blog.csdnimg.cn/c7279fe414a24eb3a9967587c182d943.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p> 
+<p>other:conda info -e （查看所有的虚拟环境）</p> 
+<p>删除环境：<br> 第一步：首先退出环境<br> conda deactivate<br> 第二步：删除环境<br> conda remove -n 需要删除的环境名 --all</p> 
+<p>rm -rf + 文件名 删除文件夹<br> df -h查看linux系统各分区的情况<br> nohup 命令 &gt; 文件 2&gt;&amp;1 &amp; # 使模型在后台训练 exit退出黑窗口<br> 1.&gt; 会重写文件，如果文件里面有内容会覆盖，没有则创建并写入。<br> 2.&gt;&gt; 将内容追加到文件中，即如果文件里面有内容会把新内容追加到文件尾，如果文件不存在，就创建文件<br> kill -9 PID # 关闭特定进程<br> tar -xvf #解压tar包<br> 查看当前文件夹的大小：du -ah<br> 查看当前文件夹下面各个文件夹的大小：du -ah --max-depth=1<br> anaconda下的pkgs怎么清理:conda clean -a<br> ps u pid 查询显卡谁在使用<br> sudo chmod -R 777 myResources 修改文件的权限为所有用户拥有最高权限<br> pip install *** -i https://pypi.tuna.tsinghua.edu.cn/simple 镜像加速安装<br> ps -f -p 26359 可以看到进程26359在跑训练<br> cp -r /TEST/test1 /TEST/test2 复制文件夹<br> Defaulting to user installation because normal site-packages is not writeable ： python3 -m pip install requests</p> 
+<p>fuser -v /dev/nvidia* nvidia-smi 无进程占用GPU，但GPU显存却被占用了</p> 
+<h1><a name="t2"></a><a id="Pycharmjupyter_45"></a>二、Pycharm、jupyter的安装</h1> 
+<h2><a name="t3"></a><a id="1_Pycharm_46"></a>1. Pycharm</h2> 
+<p>1.pycharm官网下载安装<br> 2.新建项目（lean_pytorch)，<img src="https://img-blog.csdnimg.cn/c7bffcba67174cf198d1442add8312c0.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br> 点击已存在的编译器，点进去寻找刚刚我们安装好的环境。<img src="https://img-blog.csdnimg.cn/05a505d8963f4e57b74aa693cd57c06e.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br> 导入成功。</p> 
+<h2><a name="t4"></a><a id="2jupyter_51"></a>2.jupyter</h2> 
+<ol><li>安装好anaconda后无需再次安装。</li><li>jupyter默认安装在base环境中，所以我们需要在pytorch环境中安装jupyter.</li><li>进入pytorch环境，输入<code>conda install nb_conda</code>安装juypter</li><li>安装完成后输入<code>juypter notebook</code>即可打开。</li><li><img src="https://img-blog.csdnimg.cn/0f2a577be008433dbeac3c203534d8ba.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br> 新建pytorch环境下的juypter文件。</li><li>输入<code>import torch</code>,<code>torch.cuda.is_available()</code>，返回TRUE即安装成功。</li></ol> 
+<h1><a name="t5"></a><a id="Pythonhelpdir_60"></a>三、Python学习中的两大法宝函数（help、dir）</h1> 
+<p><img src="https://img-blog.csdnimg.cn/373021fd58014914b34a8c2d12531bd8.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p> 
+<p><img src="https://img-blog.csdnimg.cn/5a9f2228b0b54ee9bd2b3c9d70febe4c.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br> 进入pycharm的python console，输入dir(torch),dir(torch.cuda),dir(torch.cuda.is_available()),help(torch.cuda.is_available)。</p> 
+<h1><a name="t6"></a><a id="Dataset_65"></a>四、加载数据（Dataset）</h1> 
+<p><img src="https://img-blog.csdnimg.cn/a9135ddaa79746888eb0932a4f39f95b.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/aef53b761331401e93b9ff49da43ff94.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p> 
+<p><img src="https://img-blog.csdnimg.cn/1b158f209c324ad4a0583e0168bf760d.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/efda402c39504573b27164a750a75bf3.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/3798da530cf44f43baf465480cd2d66e.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p> 
+<pre data-index="0" class="set-code-hide prettyprint"><code class="has-numbering" onclick="mdcp.copyCode(event)" style="position: unset;">from torch.utils.data import Dataset, DataLoader
+import numpy as np
+from PIL import Image
+import os
+from torchvision import transforms
+from torch.utils.tensorboard import SummaryWriter
+from torchvision.utils import make_grid
+
+<p>writer &#x3D; SummaryWriter(“logs”)</p>
+<p>class MyData(Dataset):</p>
+<pre><code class="hljs">def __init__(self, root_dir, image_dir, label_dir, transform):
+    self.root_dir = root_dir
+    self.image_dir = image_dir
+    self.label_dir = label_dir
+    self.label_path = os.path.join(self.root_dir, self.label_dir)
+    self.image_path = os.path.join(self.root_dir, self.image_dir)
+    self.image_list = os.listdir(self.image_path)
+    self.label_list = os.listdir(self.label_path)
+    self.transform = transform
+    # 因为label 和 Image文件名相同，进行一样的排序，可以保证取出的数据和label是一一对应的
+    self.image_list.sort()
+    self.label_list.sort()
+
+def __getitem__(self, idx):
+    img_name = self.image_list[idx]
+    label_name = self.label_list[idx]
+    img_item_path = os.path.join(self.root_dir, self.image_dir, img_name)
+    label_item_path = os.path.join(self.root_dir, self.label_dir, label_name)
+    img = Image.open(img_item_path)
+
+    with open(label_item_path, &#39;r&#39;) as f:
+        label = f.readline()
+
+    # img = np.array(img)
+    img = self.transform(img)
+    sample = &#123;&#39;img&#39;: img, &#39;label&#39;: label&#125;
+    return sample
+
+def __len__(self):
+    assert len(self.image_list) == len(self.label_list)
+    return len(self.image_list)
+</code></pre>
+<p>if <strong>name</strong> &#x3D;&#x3D; ‘<strong>main</strong>‘:<br>    transform &#x3D; transforms.Compose([transforms.Resize((256, 256)), transforms.ToTensor()])<br>    root_dir &#x3D; “dataset&#x2F;train”<br>    image_ants &#x3D; “ants_image”<br>    label_ants &#x3D; “ants_label”<br>    ants_dataset &#x3D; MyData(root_dir, image_ants, label_ants, transform)<br>    image_bees &#x3D; “bees_image”<br>    label_bees &#x3D; “bees_label”<br>    bees_dataset &#x3D; MyData(root_dir, image_bees, label_bees, transform)<br>    train_dataset &#x3D; ants_dataset + bees_dataset</p>
+<pre><code class="hljs"># transforms = transforms.Compose([transforms.Resize(256, 256)])
+dataloader = DataLoader(train_dataset, batch_size=1, num_workers=2)
+
+writer.add_image(&#39;error&#39;, train_dataset[119][&#39;img&#39;])
+writer.close()
+# for i, j in enumerate(dataloader):
+#     # imgs, labels = j
+#     print(type(j))
+#     print(i, j[&#39;img&#39;].shape)
+#     # writer.add_image(&quot;train_data_b2&quot;, make_grid(j[&#39;img&#39;]), i)
+#
+# writer.close()
+</code></pre>
+<div class="hljs-button {2}" data-title="复制"></div></code><div class="hide-preCode-box"><span class="hide-preCode-bt" data-report-view="{&quot;spm&quot;:&quot;1001.2101.3001.7365&quot;}"><img class="look-more-preCode contentImg-no-view" src="https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png" srcset="/img/loading.gif" lazyload alt="" title=""></span></div><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li><li style="color: rgb(153, 153, 153);">4</li><li style="color: rgb(153, 153, 153);">5</li><li style="color: rgb(153, 153, 153);">6</li><li style="color: rgb(153, 153, 153);">7</li><li style="color: rgb(153, 153, 153);">8</li><li style="color: rgb(153, 153, 153);">9</li><li style="color: rgb(153, 153, 153);">10</li><li style="color: rgb(153, 153, 153);">11</li><li style="color: rgb(153, 153, 153);">12</li><li style="color: rgb(153, 153, 153);">13</li><li style="color: rgb(153, 153, 153);">14</li><li style="color: rgb(153, 153, 153);">15</li><li style="color: rgb(153, 153, 153);">16</li><li style="color: rgb(153, 153, 153);">17</li><li style="color: rgb(153, 153, 153);">18</li><li style="color: rgb(153, 153, 153);">19</li><li style="color: rgb(153, 153, 153);">20</li><li style="color: rgb(153, 153, 153);">21</li><li style="color: rgb(153, 153, 153);">22</li><li style="color: rgb(153, 153, 153);">23</li><li style="color: rgb(153, 153, 153);">24</li><li style="color: rgb(153, 153, 153);">25</li><li style="color: rgb(153, 153, 153);">26</li><li style="color: rgb(153, 153, 153);">27</li><li style="color: rgb(153, 153, 153);">28</li><li style="color: rgb(153, 153, 153);">29</li><li style="color: rgb(153, 153, 153);">30</li><li style="color: rgb(153, 153, 153);">31</li><li style="color: rgb(153, 153, 153);">32</li><li style="color: rgb(153, 153, 153);">33</li><li style="color: rgb(153, 153, 153);">34</li><li style="color: rgb(153, 153, 153);">35</li><li style="color: rgb(153, 153, 153);">36</li><li style="color: rgb(153, 153, 153);">37</li><li style="color: rgb(153, 153, 153);">38</li><li style="color: rgb(153, 153, 153);">39</li><li style="color: rgb(153, 153, 153);">40</li><li style="color: rgb(153, 153, 153);">41</li><li style="color: rgb(153, 153, 153);">42</li><li style="color: rgb(153, 153, 153);">43</li><li style="color: rgb(153, 153, 153);">44</li><li style="color: rgb(153, 153, 153);">45</li><li style="color: rgb(153, 153, 153);">46</li><li style="color: rgb(153, 153, 153);">47</li><li style="color: rgb(153, 153, 153);">48</li><li style="color: rgb(153, 153, 153);">49</li><li style="color: rgb(153, 153, 153);">50</li><li style="color: rgb(153, 153, 153);">51</li><li style="color: rgb(153, 153, 153);">52</li><li style="color: rgb(153, 153, 153);">53</li><li style="color: rgb(153, 153, 153);">54</li><li style="color: rgb(153, 153, 153);">55</li><li style="color: rgb(153, 153, 153);">56</li><li style="color: rgb(153, 153, 153);">57</li><li style="color: rgb(153, 153, 153);">58</li><li style="color: rgb(153, 153, 153);">59</li><li style="color: rgb(153, 153, 153);">60</li><li style="color: rgb(153, 153, 153);">61</li><li style="color: rgb(153, 153, 153);">62</li><li style="color: rgb(153, 153, 153);">63</li><li style="color: rgb(153, 153, 153);">64</li><li style="color: rgb(153, 153, 153);">65</li><li style="color: rgb(153, 153, 153);">66</li><li style="color: rgb(153, 153, 153);">67</li></ul></pre> 
+<h1><a name="t7"></a><a id="TensorBorad_141"></a>五、TensorBorad的使用</h1> 
+<p>安装tensorborad:pip install tensorboard<br> <img src="https://img-blog.csdnimg.cn/56359c84655541d8a39f15be7a33c38b.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br> 更改端口：<br> <img src="https://img-blog.csdnimg.cn/74e3a450a61e45eb97f8bbba49fd016b.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/f574b2d5d4794b3ca4475c20f2268954.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p> 
+<h1><a name="t8"></a><a id="Transformer_147"></a>六、Transformer</h1> 
+<p><img src="https://img-blog.csdnimg.cn/92414a402a0449918da45cb1c8f231c6.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p> 
+<p><img src="https://img-blog.csdnimg.cn/fda4b62c305b4806bb552197955a0461.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p> 
+<p>进入structure</p> 
+<h2><a name="t9"></a><a id="1compose_153"></a>1.compose</h2> 
+<p>将几个步骤合为一个</p> 
+<h2><a name="t10"></a><a id="2toTensor_155"></a>2.toTensor</h2> 
+<p>将PIL和numpy类型的图片转为Tensor（可用于训练）<br> <img src="https://img-blog.csdnimg.cn/e6ef9d73fbaf40599ff9e156e899d28f.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p> 
+<p>__call__的使用：<img src="https://img-blog.csdnimg.cn/f045b0e65be04acfa339fb2cf330e31c.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br> ctrl+p提示函数参数</p> 
+<h2><a name="t11"></a><a id="3Normalize_161"></a>3.Normalize</h2> 
+<p>讲一个tensor类型进行归一化<br> <img src="https://img-blog.csdnimg.cn/015068e480e54059ab49df4b2ff87d11.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p> 
+<h2><a name="t12"></a><a id="4Resize_164"></a>4.Resize</h2> 
+<p><img src="https://img-blog.csdnimg.cn/69e573b9e902420b84a77ccda89b8d9b.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br> tips:<img src="https://img-blog.csdnimg.cn/95daa6a6747c433ab3e5b478993b3ea3.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p> 
+<h1><a name="t13"></a><a id="torchvision_167"></a>七、<a href="https://so.csdn.net/so/search?q=torchvision&amp;spm=1001.2101.3001.7020" target="_blank" class="hl hl-1" data-report-view="{&quot;spm&quot;:&quot;1001.2101.3001.7020&quot;,&quot;dest&quot;:&quot;https://so.csdn.net/so/search?q=torchvision&amp;spm=1001.2101.3001.7020&quot;,&quot;extra&quot;:&quot;{\&quot;searchword\&quot;:\&quot;torchvision\&quot;}&quot;}" data-report-click="{&quot;spm&quot;:&quot;1001.2101.3001.7020&quot;,&quot;dest&quot;:&quot;https://so.csdn.net/so/search?q=torchvision&amp;spm=1001.2101.3001.7020&quot;,&quot;extra&quot;:&quot;{\&quot;searchword\&quot;:\&quot;torchvision\&quot;}&quot;}" data-tit="torchvision" data-pretit="torchvision">torchvision</a>中数据集的使用</h1> 
+<p>torchvision 是PyTorch中专门用来处理图像的库。这个包中有四个大类。</p> 
+<p>torchvision.datasets</p> 
+<p>torchvision.models</p> 
+<p>torchvision.transforms</p> 
+<p>torchvision.utils</p> 
+<p>这里主要介绍前三个。</p> 
+<h2><a name="t14"></a><a id="1torchvisiondatasets_180"></a>1.torchvision.datasets</h2> 
+<p><img src="https://img-blog.csdnimg.cn/86317b030cd043c3babd8a6e2363d3bd.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/47bd93730fc044e7b0f1d42ad8c89cb2.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p> 
+<h1><a name="t15"></a><a id="dataloader_183"></a>八、dataloader</h1> 
+<p><img src="https://img-blog.csdnimg.cn/763cf5f7d09043f3b72f352c33118384.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br> drop_last=true,舍去最后的余数图片，如上半张图片将会舍去，下半张图片为FALSE<br> <img src="https://img-blog.csdnimg.cn/77025205484340efb28f10bd2234a0ba.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p> 
+<h2><a name="t16"></a><a id="nnmodule_187"></a>九、nn.module</h2> 
+<p><img src="https://img-blog.csdnimg.cn/0f840e1b8db74921942c13a91068c9a9.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p> 
+<h2><a name="t17"></a><a id="_189"></a>十、卷积操作</h2> 
+<p><img src="https://img-blog.csdnimg.cn/56f18e9e64074c19b333bd3bafd120ee.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/deac499ac6ac4cfba2a0c66ee9f0c13a.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p> 
+<h1><a name="t18"></a><a id="_192"></a>十一、卷积层</h1> 
+<pre data-index="1" class="set-code-hide prettyprint"><code class="prism language-puppet has-numbering" onclick="mdcp.copyCode(event)" style="position: unset;"><span class="token keyword">import</span> torch
+<span class="token keyword">import</span> torchvision
+from torch <span class="token keyword">import</span> nn
+from torch<span class="token punctuation">.</span><span class="token function">nn</span> <span class="token keyword">import</span> Conv2d
+from torch<span class="token punctuation">.</span><span class="token function">utils</span><span class="token punctuation">.</span><span class="token function">data</span> <span class="token keyword">import</span> DataLoader
+from torch<span class="token punctuation">.</span><span class="token function">utils</span><span class="token punctuation">.</span><span class="token function">tensorboard</span> <span class="token keyword">import</span> SummaryWriter
+
+<p>dataset <span class="token operator">&#x3D;</span> torchvision<span class="token punctuation">.</span><span class="token function">datasets</span><span class="token punctuation">.</span><span class="token function">CIFAR10</span><span class="token punctuation">(</span><span class="token string"><span class="token double-quoted">“..&#x2F;data”</span></span><span class="token punctuation">,</span> train<span class="token operator">&#x3D;</span>False<span class="token punctuation">,</span> transform<span class="token operator">&#x3D;</span>torchvision<span class="token punctuation">.</span><span class="token function">transforms</span><span class="token punctuation">.</span><span class="token function">ToTensor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>                                       download<span class="token operator">&#x3D;</span>True<span class="token punctuation">)</span><br>dataloader <span class="token operator">&#x3D;</span> <span class="token function">DataLoader</span><span class="token punctuation">(</span>dataset<span class="token punctuation">,</span> batch_size<span class="token operator">&#x3D;</span><span class="token number">64</span><span class="token punctuation">)</span></p>
+<p><span class="token keyword">class</span> <span class="token function">Tudui</span><span class="token punctuation">(</span>nn<span class="token punctuation">.</span><span class="token function">Module</span><span class="token punctuation">)</span><span class="token punctuation">:</span><br>    def <span class="token function"><strong>init</strong></span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span><br>        <span class="token function">super</span><span class="token punctuation">(</span>Tudui<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function"><strong>init</strong></span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>        self<span class="token punctuation">.</span><span class="token function">conv1</span> <span class="token operator">&#x3D;</span> <span class="token function">Conv2d</span><span class="token punctuation">(</span>in_channels<span class="token operator">&#x3D;</span><span class="token number">3</span><span class="token punctuation">,</span> out_channels<span class="token operator">&#x3D;</span><span class="token number">6</span><span class="token punctuation">,</span> kernel_size<span class="token operator">&#x3D;</span><span class="token number">3</span><span class="token punctuation">,</span> stride<span class="token operator">&#x3D;</span><span class="token number">1</span><span class="token punctuation">,</span> padding<span class="token operator">&#x3D;</span><span class="token number">0</span><span class="token punctuation">)</span></p>
+<pre><code class="hljs">def &lt;span class=&quot;token function&quot;&gt;forward&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; x&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    x &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;conv1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    return x
+</code></pre>
+<p>tudui <span class="token operator">&#x3D;</span> <span class="token function">Tudui</span><span class="token punctuation">(</span><span class="token punctuation">)</span></p>
+<p>writer <span class="token operator">&#x3D;</span> <span class="token function">SummaryWriter</span><span class="token punctuation">(</span><span class="token string"><span class="token double-quoted">“..&#x2F;logs”</span></span><span class="token punctuation">)</span></p>
+<p>step <span class="token operator">&#x3D;</span> <span class="token number">0</span><br>for data <span class="token operator">in</span> dataloader<span class="token punctuation">:</span><br>    imgs<span class="token punctuation">,</span> targets <span class="token operator">&#x3D;</span> data<br>    output <span class="token operator">&#x3D;</span> <span class="token function">tudui</span><span class="token punctuation">(</span>imgs<span class="token punctuation">)</span><br>    <span class="token function">print</span><span class="token punctuation">(</span>imgs<span class="token punctuation">.</span><span class="token function">shape</span><span class="token punctuation">)</span><br>    <span class="token function">print</span><span class="token punctuation">(</span>output<span class="token punctuation">.</span><span class="token function">shape</span><span class="token punctuation">)</span><br>    <span class="token comment"># torch.Size([64, 3, 32, 32])</span><br>    writer<span class="token punctuation">.</span><span class="token function">add_images</span><span class="token punctuation">(</span><span class="token string"><span class="token double-quoted">“input”</span></span><span class="token punctuation">,</span> imgs<span class="token punctuation">,</span> step<span class="token punctuation">)</span><br>    <span class="token comment"># torch.Size([64, 6, 30, 30])  -&gt; [xxx, 3, 30, 30]</span></p>
+<pre><code class="hljs">output &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; torch&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;reshape&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;output&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+writer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;add_images&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&lt;span class=&quot;token double-quoted&quot;&gt;&quot;output&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; output&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; step&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+step &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; step &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+</code></pre>
+<div class="hljs-button {2}" data-title="复制"></div></code><div class="hide-preCode-box"><span class="hide-preCode-bt" data-report-view="{&quot;spm&quot;:&quot;1001.2101.3001.7365&quot;}"><img class="look-more-preCode contentImg-no-view" src="https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png" srcset="/img/loading.gif" lazyload alt="" title=""></span></div><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li><li style="color: rgb(153, 153, 153);">4</li><li style="color: rgb(153, 153, 153);">5</li><li style="color: rgb(153, 153, 153);">6</li><li style="color: rgb(153, 153, 153);">7</li><li style="color: rgb(153, 153, 153);">8</li><li style="color: rgb(153, 153, 153);">9</li><li style="color: rgb(153, 153, 153);">10</li><li style="color: rgb(153, 153, 153);">11</li><li style="color: rgb(153, 153, 153);">12</li><li style="color: rgb(153, 153, 153);">13</li><li style="color: rgb(153, 153, 153);">14</li><li style="color: rgb(153, 153, 153);">15</li><li style="color: rgb(153, 153, 153);">16</li><li style="color: rgb(153, 153, 153);">17</li><li style="color: rgb(153, 153, 153);">18</li><li style="color: rgb(153, 153, 153);">19</li><li style="color: rgb(153, 153, 153);">20</li><li style="color: rgb(153, 153, 153);">21</li><li style="color: rgb(153, 153, 153);">22</li><li style="color: rgb(153, 153, 153);">23</li><li style="color: rgb(153, 153, 153);">24</li><li style="color: rgb(153, 153, 153);">25</li><li style="color: rgb(153, 153, 153);">26</li><li style="color: rgb(153, 153, 153);">27</li><li style="color: rgb(153, 153, 153);">28</li><li style="color: rgb(153, 153, 153);">29</li><li style="color: rgb(153, 153, 153);">30</li><li style="color: rgb(153, 153, 153);">31</li><li style="color: rgb(153, 153, 153);">32</li><li style="color: rgb(153, 153, 153);">33</li><li style="color: rgb(153, 153, 153);">34</li><li style="color: rgb(153, 153, 153);">35</li><li style="color: rgb(153, 153, 153);">36</li><li style="color: rgb(153, 153, 153);">37</li><li style="color: rgb(153, 153, 153);">38</li></ul></pre> 
+<h1><a name="t19"></a><a id="_234"></a>十二、池化层</h1> 
+<pre data-index="2" class="set-code-hide prettyprint"><code class="prism language-puppet has-numbering" onclick="mdcp.copyCode(event)" style="position: unset;"><span class="token keyword">import</span> torch
+<span class="token keyword">import</span> torchvision
+from torch <span class="token keyword">import</span> nn
+from torch<span class="token punctuation">.</span><span class="token function">nn</span> <span class="token keyword">import</span> MaxPool2d
+from torch<span class="token punctuation">.</span><span class="token function">utils</span><span class="token punctuation">.</span><span class="token function">data</span> <span class="token keyword">import</span> DataLoader
+from torch<span class="token punctuation">.</span><span class="token function">utils</span><span class="token punctuation">.</span><span class="token function">tensorboard</span> <span class="token keyword">import</span> SummaryWriter
+
+<p>dataset <span class="token operator">&#x3D;</span> torchvision<span class="token punctuation">.</span><span class="token function">datasets</span><span class="token punctuation">.</span><span class="token function">CIFAR10</span><span class="token punctuation">(</span><span class="token string"><span class="token double-quoted">“..&#x2F;data”</span></span><span class="token punctuation">,</span> train<span class="token operator">&#x3D;</span>False<span class="token punctuation">,</span> download<span class="token operator">&#x3D;</span>True<span class="token punctuation">,</span><br>                                       transform<span class="token operator">&#x3D;</span>torchvision<span class="token punctuation">.</span><span class="token function">transforms</span><span class="token punctuation">.</span><span class="token function">ToTensor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></p>
+<p>dataloader <span class="token operator">&#x3D;</span> <span class="token function">DataLoader</span><span class="token punctuation">(</span>dataset<span class="token punctuation">,</span> batch_size<span class="token operator">&#x3D;</span><span class="token number">64</span><span class="token punctuation">)</span></p>
+<p><span class="token keyword">class</span> <span class="token function">Tudui</span><span class="token punctuation">(</span>nn<span class="token punctuation">.</span><span class="token function">Module</span><span class="token punctuation">)</span><span class="token punctuation">:</span><br>    def <span class="token function"><strong>init</strong></span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span><br>        <span class="token function">super</span><span class="token punctuation">(</span>Tudui<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function"><strong>init</strong></span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>        self<span class="token punctuation">.</span><span class="token function">maxpool1</span> <span class="token operator">&#x3D;</span> <span class="token function">MaxPool2d</span><span class="token punctuation">(</span>kernel_size<span class="token operator">&#x3D;</span><span class="token number">3</span><span class="token punctuation">,</span> ceil_mode<span class="token operator">&#x3D;</span>False<span class="token punctuation">)</span></p>
+<pre><code class="hljs">def &lt;span class=&quot;token function&quot;&gt;forward&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; input&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    output &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;maxpool1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;input&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    return output
+</code></pre>
+<p>tudui <span class="token operator">&#x3D;</span> <span class="token function">Tudui</span><span class="token punctuation">(</span><span class="token punctuation">)</span></p>
+<p>writer <span class="token operator">&#x3D;</span> <span class="token function">SummaryWriter</span><span class="token punctuation">(</span><span class="token string"><span class="token double-quoted">“..&#x2F;logs_maxpool”</span></span><span class="token punctuation">)</span><br>step <span class="token operator">&#x3D;</span> <span class="token number">0</span></p>
+<p>for data <span class="token operator">in</span> dataloader<span class="token punctuation">:</span><br>    imgs<span class="token punctuation">,</span> targets <span class="token operator">&#x3D;</span> data<br>    writer<span class="token punctuation">.</span><span class="token function">add_images</span><span class="token punctuation">(</span><span class="token string"><span class="token double-quoted">“input”</span></span><span class="token punctuation">,</span> imgs<span class="token punctuation">,</span> step<span class="token punctuation">)</span><br>    output <span class="token operator">&#x3D;</span> <span class="token function">tudui</span><span class="token punctuation">(</span>imgs<span class="token punctuation">)</span><br>    writer<span class="token punctuation">.</span><span class="token function">add_images</span><span class="token punctuation">(</span><span class="token string"><span class="token double-quoted">“output”</span></span><span class="token punctuation">,</span> output<span class="token punctuation">,</span> step<span class="token punctuation">)</span><br>    step <span class="token operator">&#x3D;</span> step <span class="token operator">+</span> <span class="token number">1</span></p>
+<p>writer<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span></p>
+<div class="hljs-button {2}" data-title="复制"></div></code><div class="hide-preCode-box"><span class="hide-preCode-bt" data-report-view="{&quot;spm&quot;:&quot;1001.2101.3001.7365&quot;}"><img class="look-more-preCode contentImg-no-view" src="https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png" srcset="/img/loading.gif" lazyload alt="" title=""></span></div><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li><li style="color: rgb(153, 153, 153);">4</li><li style="color: rgb(153, 153, 153);">5</li><li style="color: rgb(153, 153, 153);">6</li><li style="color: rgb(153, 153, 153);">7</li><li style="color: rgb(153, 153, 153);">8</li><li style="color: rgb(153, 153, 153);">9</li><li style="color: rgb(153, 153, 153);">10</li><li style="color: rgb(153, 153, 153);">11</li><li style="color: rgb(153, 153, 153);">12</li><li style="color: rgb(153, 153, 153);">13</li><li style="color: rgb(153, 153, 153);">14</li><li style="color: rgb(153, 153, 153);">15</li><li style="color: rgb(153, 153, 153);">16</li><li style="color: rgb(153, 153, 153);">17</li><li style="color: rgb(153, 153, 153);">18</li><li style="color: rgb(153, 153, 153);">19</li><li style="color: rgb(153, 153, 153);">20</li><li style="color: rgb(153, 153, 153);">21</li><li style="color: rgb(153, 153, 153);">22</li><li style="color: rgb(153, 153, 153);">23</li><li style="color: rgb(153, 153, 153);">24</li><li style="color: rgb(153, 153, 153);">25</li><li style="color: rgb(153, 153, 153);">26</li><li style="color: rgb(153, 153, 153);">27</li><li style="color: rgb(153, 153, 153);">28</li><li style="color: rgb(153, 153, 153);">29</li><li style="color: rgb(153, 153, 153);">30</li><li style="color: rgb(153, 153, 153);">31</li><li style="color: rgb(153, 153, 153);">32</li><li style="color: rgb(153, 153, 153);">33</li><li style="color: rgb(153, 153, 153);">34</li></ul></pre> 
+<p><img src="https://img-blog.csdnimg.cn/788773addb0e4329aa30f321b7066e6e.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p> 
+<h1><a name="t20"></a><a id="_273"></a>十三、非线性激活</h1> 
+<pre data-index="3" class="set-code-hide prettyprint"><code class="prism language-puppet has-numbering" onclick="mdcp.copyCode(event)" style="position: unset;">input <span class="token operator">=</span> torch<span class="token punctuation">.</span><span class="token function">tensor</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">0.5</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                      <span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<p>input <span class="token operator">&#x3D;</span> torch<span class="token punctuation">.</span><span class="token function">reshape</span><span class="token punctuation">(</span>input<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><br><span class="token function">print</span><span class="token punctuation">(</span>input<span class="token punctuation">.</span><span class="token function">shape</span><span class="token punctuation">)</span></p>
+<p>dataset <span class="token operator">&#x3D;</span> torchvision<span class="token punctuation">.</span><span class="token function">datasets</span><span class="token punctuation">.</span><span class="token function">CIFAR10</span><span class="token punctuation">(</span><span class="token string"><span class="token double-quoted">“..&#x2F;data”</span></span><span class="token punctuation">,</span> train<span class="token operator">&#x3D;</span>False<span class="token punctuation">,</span> download<span class="token operator">&#x3D;</span>True<span class="token punctuation">,</span><br>                                       transform<span class="token operator">&#x3D;</span>torchvision<span class="token punctuation">.</span><span class="token function">transforms</span><span class="token punctuation">.</span><span class="token function">ToTensor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></p>
+<p>dataloader <span class="token operator">&#x3D;</span> <span class="token function">DataLoader</span><span class="token punctuation">(</span>dataset<span class="token punctuation">,</span> batch_size<span class="token operator">&#x3D;</span><span class="token number">64</span><span class="token punctuation">)</span></p>
+<p><span class="token keyword">class</span> <span class="token function">Tudui</span><span class="token punctuation">(</span>nn<span class="token punctuation">.</span><span class="token function">Module</span><span class="token punctuation">)</span><span class="token punctuation">:</span><br>    def <span class="token function"><strong>init</strong></span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span><br>        <span class="token function">super</span><span class="token punctuation">(</span>Tudui<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function"><strong>init</strong></span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>        self<span class="token punctuation">.</span><span class="token function">relu1</span> <span class="token operator">&#x3D;</span> <span class="token function">ReLU</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>        self<span class="token punctuation">.</span><span class="token function">sigmoid1</span> <span class="token operator">&#x3D;</span> <span class="token function">Sigmoid</span><span class="token punctuation">(</span><span class="token punctuation">)</span></p>
+<pre><code class="hljs">def &lt;span class=&quot;token function&quot;&gt;forward&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; input&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    output &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;sigmoid1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;input&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    return output
+</code></pre>
+<p>tudui <span class="token operator">&#x3D;</span> <span class="token function">Tudui</span><span class="token punctuation">(</span><span class="token punctuation">)</span></p>
+<p>writer <span class="token operator">&#x3D;</span> <span class="token function">SummaryWriter</span><span class="token punctuation">(</span><span class="token string"><span class="token double-quoted">“..&#x2F;logs_relu”</span></span><span class="token punctuation">)</span><br>step <span class="token operator">&#x3D;</span> <span class="token number">0</span><br>for data <span class="token operator">in</span> dataloader<span class="token punctuation">:</span><br>    imgs<span class="token punctuation">,</span> targets <span class="token operator">&#x3D;</span> data<br>    writer<span class="token punctuation">.</span><span class="token function">add_images</span><span class="token punctuation">(</span><span class="token string"><span class="token double-quoted">“input”</span></span><span class="token punctuation">,</span> imgs<span class="token punctuation">,</span> global_step<span class="token operator">&#x3D;</span>step<span class="token punctuation">)</span><br>    output <span class="token operator">&#x3D;</span> <span class="token function">tudui</span><span class="token punctuation">(</span>imgs<span class="token punctuation">)</span><br>    writer<span class="token punctuation">.</span><span class="token function">add_images</span><span class="token punctuation">(</span><span class="token string"><span class="token double-quoted">“output”</span></span><span class="token punctuation">,</span> output<span class="token punctuation">,</span> step<span class="token punctuation">)</span><br>    step <span class="token operator">+</span><span class="token operator">&#x3D;</span> <span class="token number">1</span></p>
+<p>writer<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span></p>
+<div class="hljs-button {2}" data-title="复制"></div></code><div class="hide-preCode-box"><span class="hide-preCode-bt" data-report-view="{&quot;spm&quot;:&quot;1001.2101.3001.7365&quot;}"><img class="look-more-preCode contentImg-no-view" src="https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png" srcset="/img/loading.gif" lazyload alt="" title=""></span></div><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li><li style="color: rgb(153, 153, 153);">4</li><li style="color: rgb(153, 153, 153);">5</li><li style="color: rgb(153, 153, 153);">6</li><li style="color: rgb(153, 153, 153);">7</li><li style="color: rgb(153, 153, 153);">8</li><li style="color: rgb(153, 153, 153);">9</li><li style="color: rgb(153, 153, 153);">10</li><li style="color: rgb(153, 153, 153);">11</li><li style="color: rgb(153, 153, 153);">12</li><li style="color: rgb(153, 153, 153);">13</li><li style="color: rgb(153, 153, 153);">14</li><li style="color: rgb(153, 153, 153);">15</li><li style="color: rgb(153, 153, 153);">16</li><li style="color: rgb(153, 153, 153);">17</li><li style="color: rgb(153, 153, 153);">18</li><li style="color: rgb(153, 153, 153);">19</li><li style="color: rgb(153, 153, 153);">20</li><li style="color: rgb(153, 153, 153);">21</li><li style="color: rgb(153, 153, 153);">22</li><li style="color: rgb(153, 153, 153);">23</li><li style="color: rgb(153, 153, 153);">24</li><li style="color: rgb(153, 153, 153);">25</li><li style="color: rgb(153, 153, 153);">26</li><li style="color: rgb(153, 153, 153);">27</li><li style="color: rgb(153, 153, 153);">28</li><li style="color: rgb(153, 153, 153);">29</li><li style="color: rgb(153, 153, 153);">30</li><li style="color: rgb(153, 153, 153);">31</li><li style="color: rgb(153, 153, 153);">32</li><li style="color: rgb(153, 153, 153);">33</li></ul></pre> 
+<h1><a name="t21"></a><a id="_310"></a>十四、线性层</h1> 
+<pre data-index="4" class="set-code-hide prettyprint"><code class="prism language-puppet has-numbering" onclick="mdcp.copyCode(event)" style="position: unset;"><span class="token keyword">import</span> torch
+<span class="token keyword">import</span> torchvision
+from torch <span class="token keyword">import</span> nn
+from torch<span class="token punctuation">.</span><span class="token function">nn</span> <span class="token keyword">import</span> Linear
+from torch<span class="token punctuation">.</span><span class="token function">utils</span><span class="token punctuation">.</span><span class="token function">data</span> <span class="token keyword">import</span> DataLoader
+
+<p>dataset <span class="token operator">&#x3D;</span> torchvision<span class="token punctuation">.</span><span class="token function">datasets</span><span class="token punctuation">.</span><span class="token function">CIFAR10</span><span class="token punctuation">(</span><span class="token string"><span class="token double-quoted">“..&#x2F;data”</span></span><span class="token punctuation">,</span> train<span class="token operator">&#x3D;</span>False<span class="token punctuation">,</span> transform<span class="token operator">&#x3D;</span>torchvision<span class="token punctuation">.</span><span class="token function">transforms</span><span class="token punctuation">.</span><span class="token function">ToTensor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>                                       download<span class="token operator">&#x3D;</span>True<span class="token punctuation">)</span></p>
+<p>dataloader <span class="token operator">&#x3D;</span> <span class="token function">DataLoader</span><span class="token punctuation">(</span>dataset<span class="token punctuation">,</span> batch_size<span class="token operator">&#x3D;</span><span class="token number">64</span><span class="token punctuation">)</span></p>
+<p><span class="token keyword">class</span> <span class="token function">Tudui</span><span class="token punctuation">(</span>nn<span class="token punctuation">.</span><span class="token function">Module</span><span class="token punctuation">)</span><span class="token punctuation">:</span><br>    def <span class="token function"><strong>init</strong></span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span><br>        <span class="token function">super</span><span class="token punctuation">(</span>Tudui<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function"><strong>init</strong></span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>        self<span class="token punctuation">.</span><span class="token function">linear1</span> <span class="token operator">&#x3D;</span> <span class="token function">Linear</span><span class="token punctuation">(</span><span class="token number">196608</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span></p>
+<pre><code class="hljs">def &lt;span class=&quot;token function&quot;&gt;forward&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; input&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    output &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;linear1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;input&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    return output
+</code></pre>
+<p>tudui <span class="token operator">&#x3D;</span> <span class="token function">Tudui</span><span class="token punctuation">(</span><span class="token punctuation">)</span></p>
+<p>for data <span class="token operator">in</span> dataloader<span class="token punctuation">:</span><br>    imgs<span class="token punctuation">,</span> targets <span class="token operator">&#x3D;</span> data<br>    <span class="token function">print</span><span class="token punctuation">(</span>imgs<span class="token punctuation">.</span><span class="token function">shape</span><span class="token punctuation">)</span><br>    output <span class="token operator">&#x3D;</span> torch<span class="token punctuation">.</span><span class="token function">flatten</span><span class="token punctuation">(</span>imgs<span class="token punctuation">)</span><br>    <span class="token function">print</span><span class="token punctuation">(</span>output<span class="token punctuation">.</span><span class="token function">shape</span><span class="token punctuation">)</span><br>    output <span class="token operator">&#x3D;</span> <span class="token function">tudui</span><span class="token punctuation">(</span>output<span class="token punctuation">)</span><br>    <span class="token function">print</span><span class="token punctuation">(</span>output<span class="token punctuation">.</span><span class="token function">shape</span><span class="token punctuation">)</span></p>
+<div class="hljs-button {2}" data-title="复制"></div></code><div class="hide-preCode-box"><span class="hide-preCode-bt" data-report-view="{&quot;spm&quot;:&quot;1001.2101.3001.7365&quot;}"><img class="look-more-preCode contentImg-no-view" src="https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png" srcset="/img/loading.gif" lazyload alt="" title=""></span></div><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li><li style="color: rgb(153, 153, 153);">4</li><li style="color: rgb(153, 153, 153);">5</li><li style="color: rgb(153, 153, 153);">6</li><li style="color: rgb(153, 153, 153);">7</li><li style="color: rgb(153, 153, 153);">8</li><li style="color: rgb(153, 153, 153);">9</li><li style="color: rgb(153, 153, 153);">10</li><li style="color: rgb(153, 153, 153);">11</li><li style="color: rgb(153, 153, 153);">12</li><li style="color: rgb(153, 153, 153);">13</li><li style="color: rgb(153, 153, 153);">14</li><li style="color: rgb(153, 153, 153);">15</li><li style="color: rgb(153, 153, 153);">16</li><li style="color: rgb(153, 153, 153);">17</li><li style="color: rgb(153, 153, 153);">18</li><li style="color: rgb(153, 153, 153);">19</li><li style="color: rgb(153, 153, 153);">20</li><li style="color: rgb(153, 153, 153);">21</li><li style="color: rgb(153, 153, 153);">22</li><li style="color: rgb(153, 153, 153);">23</li><li style="color: rgb(153, 153, 153);">24</li><li style="color: rgb(153, 153, 153);">25</li><li style="color: rgb(153, 153, 153);">26</li><li style="color: rgb(153, 153, 153);">27</li><li style="color: rgb(153, 153, 153);">28</li><li style="color: rgb(153, 153, 153);">29</li></ul></pre> 
+<h1><a name="t22"></a><a id="Sequential_343"></a>十五、Sequential</h1> 
+<pre data-index="5" class="set-code-hide prettyprint"><code class="prism language-puppet has-numbering" onclick="mdcp.copyCode(event)" style="position: unset;"><span class="token keyword">import</span> torch
+from torch <span class="token keyword">import</span> nn
+from torch<span class="token punctuation">.</span><span class="token function">nn</span> <span class="token keyword">import</span> Conv2d<span class="token punctuation">,</span> MaxPool2d<span class="token punctuation">,</span> Flatten<span class="token punctuation">,</span> Linear<span class="token punctuation">,</span> Sequential
+from torch<span class="token punctuation">.</span><span class="token function">utils</span><span class="token punctuation">.</span><span class="token function">tensorboard</span> <span class="token keyword">import</span> SummaryWriter
+
+
+<p><span class="token keyword">class</span> <span class="token function">Tudui</span><span class="token punctuation">(</span>nn<span class="token punctuation">.</span><span class="token function">Module</span><span class="token punctuation">)</span><span class="token punctuation">:</span><br>    def <span class="token function"><strong>init</strong></span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span><br>        <span class="token function">super</span><span class="token punctuation">(</span>Tudui<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function"><strong>init</strong></span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>        self<span class="token punctuation">.</span><span class="token function">model1</span> <span class="token operator">&#x3D;</span> <span class="token function">Sequential</span><span class="token punctuation">(</span><br>            <span class="token function">Conv2d</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">32</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> padding<span class="token operator">&#x3D;</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            <span class="token function">MaxPool2d</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            <span class="token function">Conv2d</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">,</span> <span class="token number">32</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> padding<span class="token operator">&#x3D;</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            <span class="token function">MaxPool2d</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            <span class="token function">Conv2d</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">,</span> <span class="token number">64</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> padding<span class="token operator">&#x3D;</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            <span class="token function">MaxPool2d</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            <span class="token function">Flatten</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            <span class="token function">Linear</span><span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">,</span> <span class="token number">64</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            <span class="token function">Linear</span><span class="token punctuation">(</span><span class="token number">64</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><br>        <span class="token punctuation">)</span></p>
+<pre><code class="hljs">def &lt;span class=&quot;token function&quot;&gt;forward&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; x&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    x &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;model1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    return x
+</code></pre>
+<p>tudui <span class="token operator">&#x3D;</span> <span class="token function">Tudui</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><span class="token function">print</span><span class="token punctuation">(</span>tudui<span class="token punctuation">)</span><br>input <span class="token operator">&#x3D;</span> torch<span class="token punctuation">.</span><span class="token function">ones</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">64</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">32</span><span class="token punctuation">,</span> <span class="token number">32</span><span class="token punctuation">)</span><span class="token punctuation">)</span><br>output <span class="token operator">&#x3D;</span> <span class="token function">tudui</span><span class="token punctuation">(</span>input<span class="token punctuation">)</span><br><span class="token function">print</span><span class="token punctuation">(</span>output<span class="token punctuation">.</span><span class="token function">shape</span><span class="token punctuation">)</span></p>
+<p>writer <span class="token operator">&#x3D;</span> <span class="token function">SummaryWriter</span><span class="token punctuation">(</span><span class="token string"><span class="token double-quoted">“..&#x2F;logs_seq”</span></span><span class="token punctuation">)</span><br>writer<span class="token punctuation">.</span><span class="token function">add_graph</span><span class="token punctuation">(</span>tudui<span class="token punctuation">,</span> input<span class="token punctuation">)</span><br>writer<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span></p>
+<div class="hljs-button {2}" data-title="复制"></div></code><div class="hide-preCode-box"><span class="hide-preCode-bt" data-report-view="{&quot;spm&quot;:&quot;1001.2101.3001.7365&quot;}"><img class="look-more-preCode contentImg-no-view" src="https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png" srcset="/img/loading.gif" lazyload alt="" title=""></span></div><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li><li style="color: rgb(153, 153, 153);">4</li><li style="color: rgb(153, 153, 153);">5</li><li style="color: rgb(153, 153, 153);">6</li><li style="color: rgb(153, 153, 153);">7</li><li style="color: rgb(153, 153, 153);">8</li><li style="color: rgb(153, 153, 153);">9</li><li style="color: rgb(153, 153, 153);">10</li><li style="color: rgb(153, 153, 153);">11</li><li style="color: rgb(153, 153, 153);">12</li><li style="color: rgb(153, 153, 153);">13</li><li style="color: rgb(153, 153, 153);">14</li><li style="color: rgb(153, 153, 153);">15</li><li style="color: rgb(153, 153, 153);">16</li><li style="color: rgb(153, 153, 153);">17</li><li style="color: rgb(153, 153, 153);">18</li><li style="color: rgb(153, 153, 153);">19</li><li style="color: rgb(153, 153, 153);">20</li><li style="color: rgb(153, 153, 153);">21</li><li style="color: rgb(153, 153, 153);">22</li><li style="color: rgb(153, 153, 153);">23</li><li style="color: rgb(153, 153, 153);">24</li><li style="color: rgb(153, 153, 153);">25</li><li style="color: rgb(153, 153, 153);">26</li><li style="color: rgb(153, 153, 153);">27</li><li style="color: rgb(153, 153, 153);">28</li><li style="color: rgb(153, 153, 153);">29</li><li style="color: rgb(153, 153, 153);">30</li><li style="color: rgb(153, 153, 153);">31</li><li style="color: rgb(153, 153, 153);">32</li><li style="color: rgb(153, 153, 153);">33</li><li style="color: rgb(153, 153, 153);">34</li></ul></pre> 
+<h1><a name="t23"></a><a id="_381"></a>十六、损失函数和反向传播</h1> 
+<h2><a name="t24"></a><a id="1_383"></a>1.损失函数</h2> 
+<pre data-index="6" class="set-code-hide prettyprint"><code class="prism language-puppet has-numbering" onclick="mdcp.copyCode(event)" style="position: unset;"><span class="token keyword">import</span> torchvision
+from torch <span class="token keyword">import</span> nn
+from torch<span class="token punctuation">.</span><span class="token function">nn</span> <span class="token keyword">import</span> Sequential<span class="token punctuation">,</span> Conv2d<span class="token punctuation">,</span> MaxPool2d<span class="token punctuation">,</span> Flatten<span class="token punctuation">,</span> Linear
+from torch<span class="token punctuation">.</span><span class="token function">utils</span><span class="token punctuation">.</span><span class="token function">data</span> <span class="token keyword">import</span> DataLoader
+
+<p>dataset <span class="token operator">&#x3D;</span> torchvision<span class="token punctuation">.</span><span class="token function">datasets</span><span class="token punctuation">.</span><span class="token function">CIFAR10</span><span class="token punctuation">(</span><span class="token string"><span class="token double-quoted">“..&#x2F;data”</span></span><span class="token punctuation">,</span> train<span class="token operator">&#x3D;</span>False<span class="token punctuation">,</span> transform<span class="token operator">&#x3D;</span>torchvision<span class="token punctuation">.</span><span class="token function">transforms</span><span class="token punctuation">.</span><span class="token function">ToTensor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>                                       download<span class="token operator">&#x3D;</span>True<span class="token punctuation">)</span></p>
+<p>dataloader <span class="token operator">&#x3D;</span> <span class="token function">DataLoader</span><span class="token punctuation">(</span>dataset<span class="token punctuation">,</span> batch_size<span class="token operator">&#x3D;</span><span class="token number">1</span><span class="token punctuation">)</span></p>
+<p><span class="token keyword">class</span> <span class="token function">Tudui</span><span class="token punctuation">(</span>nn<span class="token punctuation">.</span><span class="token function">Module</span><span class="token punctuation">)</span><span class="token punctuation">:</span><br>    def <span class="token function"><strong>init</strong></span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span><br>        <span class="token function">super</span><span class="token punctuation">(</span>Tudui<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function"><strong>init</strong></span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>        self<span class="token punctuation">.</span><span class="token function">model1</span> <span class="token operator">&#x3D;</span> <span class="token function">Sequential</span><span class="token punctuation">(</span><br>            <span class="token function">Conv2d</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">32</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> padding<span class="token operator">&#x3D;</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            <span class="token function">MaxPool2d</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            <span class="token function">Conv2d</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">,</span> <span class="token number">32</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> padding<span class="token operator">&#x3D;</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            <span class="token function">MaxPool2d</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            <span class="token function">Conv2d</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">,</span> <span class="token number">64</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> padding<span class="token operator">&#x3D;</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            <span class="token function">MaxPool2d</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            <span class="token function">Flatten</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            <span class="token function">Linear</span><span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">,</span> <span class="token number">64</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            <span class="token function">Linear</span><span class="token punctuation">(</span><span class="token number">64</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><br>        <span class="token punctuation">)</span></p>
+<pre><code class="hljs">def &lt;span class=&quot;token function&quot;&gt;forward&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; x&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    x &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;model1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    return x
+</code></pre>
+<p>loss <span class="token operator">&#x3D;</span> nn<span class="token punctuation">.</span><span class="token function">CrossEntropyLoss</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>tudui <span class="token operator">&#x3D;</span> <span class="token function">Tudui</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>for data <span class="token operator">in</span> dataloader<span class="token punctuation">:</span><br>    imgs<span class="token punctuation">,</span> targets <span class="token operator">&#x3D;</span> data<br>    outputs <span class="token operator">&#x3D;</span> <span class="token function">tudui</span><span class="token punctuation">(</span>imgs<span class="token punctuation">)</span><br>    result_loss <span class="token operator">&#x3D;</span> <span class="token function">loss</span><span class="token punctuation">(</span>outputs<span class="token punctuation">,</span> targets<span class="token punctuation">)</span><br>    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string"><span class="token double-quoted">“ok”</span></span><span class="token punctuation">)</span></p>
+<div class="hljs-button {2}" data-title="复制"></div></code><div class="hide-preCode-box"><span class="hide-preCode-bt" data-report-view="{&quot;spm&quot;:&quot;1001.2101.3001.7365&quot;}"><img class="look-more-preCode contentImg-no-view" src="https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png" srcset="/img/loading.gif" lazyload alt="" title=""></span></div><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li><li style="color: rgb(153, 153, 153);">4</li><li style="color: rgb(153, 153, 153);">5</li><li style="color: rgb(153, 153, 153);">6</li><li style="color: rgb(153, 153, 153);">7</li><li style="color: rgb(153, 153, 153);">8</li><li style="color: rgb(153, 153, 153);">9</li><li style="color: rgb(153, 153, 153);">10</li><li style="color: rgb(153, 153, 153);">11</li><li style="color: rgb(153, 153, 153);">12</li><li style="color: rgb(153, 153, 153);">13</li><li style="color: rgb(153, 153, 153);">14</li><li style="color: rgb(153, 153, 153);">15</li><li style="color: rgb(153, 153, 153);">16</li><li style="color: rgb(153, 153, 153);">17</li><li style="color: rgb(153, 153, 153);">18</li><li style="color: rgb(153, 153, 153);">19</li><li style="color: rgb(153, 153, 153);">20</li><li style="color: rgb(153, 153, 153);">21</li><li style="color: rgb(153, 153, 153);">22</li><li style="color: rgb(153, 153, 153);">23</li><li style="color: rgb(153, 153, 153);">24</li><li style="color: rgb(153, 153, 153);">25</li><li style="color: rgb(153, 153, 153);">26</li><li style="color: rgb(153, 153, 153);">27</li><li style="color: rgb(153, 153, 153);">28</li><li style="color: rgb(153, 153, 153);">29</li><li style="color: rgb(153, 153, 153);">30</li><li style="color: rgb(153, 153, 153);">31</li><li style="color: rgb(153, 153, 153);">32</li><li style="color: rgb(153, 153, 153);">33</li><li style="color: rgb(153, 153, 153);">34</li><li style="color: rgb(153, 153, 153);">35</li><li style="color: rgb(153, 153, 153);">36</li><li style="color: rgb(153, 153, 153);">37</li><li style="color: rgb(153, 153, 153);">38</li></ul></pre> 
+<h2><a name="t25"></a><a id="2_424"></a>2.反向传播及优化</h2> 
+<pre data-index="7" class="set-code-hide prettyprint"><code class="prism language-puppet has-numbering" onclick="mdcp.copyCode(event)" style="position: unset;"><span class="token keyword">import</span> torch
+<span class="token keyword">import</span> torchvision
+from torch <span class="token keyword">import</span> nn
+from torch<span class="token punctuation">.</span><span class="token function">nn</span> <span class="token keyword">import</span> Sequential<span class="token punctuation">,</span> Conv2d<span class="token punctuation">,</span> MaxPool2d<span class="token punctuation">,</span> Flatten<span class="token punctuation">,</span> Linear
+from torch<span class="token punctuation">.</span><span class="token function">optim</span><span class="token punctuation">.</span><span class="token function">lr_scheduler</span> <span class="token keyword">import</span> StepLR
+from torch<span class="token punctuation">.</span><span class="token function">utils</span><span class="token punctuation">.</span><span class="token function">data</span> <span class="token keyword">import</span> DataLoader
+
+<p>dataset <span class="token operator">&#x3D;</span> torchvision<span class="token punctuation">.</span><span class="token function">datasets</span><span class="token punctuation">.</span><span class="token function">CIFAR10</span><span class="token punctuation">(</span><span class="token string"><span class="token double-quoted">“..&#x2F;data”</span></span><span class="token punctuation">,</span> train<span class="token operator">&#x3D;</span>False<span class="token punctuation">,</span> transform<span class="token operator">&#x3D;</span>torchvision<span class="token punctuation">.</span><span class="token function">transforms</span><span class="token punctuation">.</span><span class="token function">ToTensor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>                                       download<span class="token operator">&#x3D;</span>True<span class="token punctuation">)</span></p>
+<p>dataloader <span class="token operator">&#x3D;</span> <span class="token function">DataLoader</span><span class="token punctuation">(</span>dataset<span class="token punctuation">,</span> batch_size<span class="token operator">&#x3D;</span><span class="token number">1</span><span class="token punctuation">)</span></p>
+<p><span class="token keyword">class</span> <span class="token function">Tudui</span><span class="token punctuation">(</span>nn<span class="token punctuation">.</span><span class="token function">Module</span><span class="token punctuation">)</span><span class="token punctuation">:</span><br>    def <span class="token function"><strong>init</strong></span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span><br>        <span class="token function">super</span><span class="token punctuation">(</span>Tudui<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function"><strong>init</strong></span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>        self<span class="token punctuation">.</span><span class="token function">model1</span> <span class="token operator">&#x3D;</span> <span class="token function">Sequential</span><span class="token punctuation">(</span><br>            <span class="token function">Conv2d</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">32</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> padding<span class="token operator">&#x3D;</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            <span class="token function">MaxPool2d</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            <span class="token function">Conv2d</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">,</span> <span class="token number">32</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> padding<span class="token operator">&#x3D;</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            <span class="token function">MaxPool2d</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            <span class="token function">Conv2d</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">,</span> <span class="token number">64</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> padding<span class="token operator">&#x3D;</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            <span class="token function">MaxPool2d</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            <span class="token function">Flatten</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            <span class="token function">Linear</span><span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">,</span> <span class="token number">64</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            <span class="token function">Linear</span><span class="token punctuation">(</span><span class="token number">64</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><br>        <span class="token punctuation">)</span></p>
+<pre><code class="hljs">def &lt;span class=&quot;token function&quot;&gt;forward&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; x&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    x &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;model1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    return x
+</code></pre>
+<p>loss <span class="token operator">&#x3D;</span> nn<span class="token punctuation">.</span><span class="token function">CrossEntropyLoss</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>tudui <span class="token operator">&#x3D;</span> <span class="token function">Tudui</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>optim <span class="token operator">&#x3D;</span> torch<span class="token punctuation">.</span><span class="token function">optim</span><span class="token punctuation">.</span><span class="token function">SGD</span><span class="token punctuation">(</span>tudui<span class="token punctuation">.</span><span class="token function">parameters</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> lr<span class="token operator">&#x3D;</span><span class="token number">0.01</span><span class="token punctuation">)</span><br>scheduler <span class="token operator">&#x3D;</span> <span class="token function">StepLR</span><span class="token punctuation">(</span>optim<span class="token punctuation">,</span> step_size<span class="token operator">&#x3D;</span><span class="token number">5</span><span class="token punctuation">,</span> gamma<span class="token operator">&#x3D;</span><span class="token number">0.1</span><span class="token punctuation">)</span><br>for epoch <span class="token operator">in</span> <span class="token function">range</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">:</span><br>    running_loss <span class="token operator">&#x3D;</span> <span class="token number">0.0</span><br>    for data <span class="token operator">in</span> dataloader<span class="token punctuation">:</span><br>        imgs<span class="token punctuation">,</span> targets <span class="token operator">&#x3D;</span> data<br>        outputs <span class="token operator">&#x3D;</span> <span class="token function">tudui</span><span class="token punctuation">(</span>imgs<span class="token punctuation">)</span><br>        result_loss <span class="token operator">&#x3D;</span> <span class="token function">loss</span><span class="token punctuation">(</span>outputs<span class="token punctuation">,</span> targets<span class="token punctuation">)</span><br>        optim<span class="token punctuation">.</span><span class="token function">zero_grad</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>        result_loss<span class="token punctuation">.</span><span class="token function">backward</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>        scheduler<span class="token punctuation">.</span><span class="token function">step</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>        running_loss <span class="token operator">&#x3D;</span> running_loss <span class="token operator">+</span> result_loss<br>    <span class="token function">print</span><span class="token punctuation">(</span>running_loss<span class="token punctuation">)</span></p>
+<div class="hljs-button {2}" data-title="复制"></div></code><div class="hide-preCode-box"><span class="hide-preCode-bt" data-report-view="{&quot;spm&quot;:&quot;1001.2101.3001.7365&quot;}"><img class="look-more-preCode contentImg-no-view" src="https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png" srcset="/img/loading.gif" lazyload alt="" title=""></span></div><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li><li style="color: rgb(153, 153, 153);">4</li><li style="color: rgb(153, 153, 153);">5</li><li style="color: rgb(153, 153, 153);">6</li><li style="color: rgb(153, 153, 153);">7</li><li style="color: rgb(153, 153, 153);">8</li><li style="color: rgb(153, 153, 153);">9</li><li style="color: rgb(153, 153, 153);">10</li><li style="color: rgb(153, 153, 153);">11</li><li style="color: rgb(153, 153, 153);">12</li><li style="color: rgb(153, 153, 153);">13</li><li style="color: rgb(153, 153, 153);">14</li><li style="color: rgb(153, 153, 153);">15</li><li style="color: rgb(153, 153, 153);">16</li><li style="color: rgb(153, 153, 153);">17</li><li style="color: rgb(153, 153, 153);">18</li><li style="color: rgb(153, 153, 153);">19</li><li style="color: rgb(153, 153, 153);">20</li><li style="color: rgb(153, 153, 153);">21</li><li style="color: rgb(153, 153, 153);">22</li><li style="color: rgb(153, 153, 153);">23</li><li style="color: rgb(153, 153, 153);">24</li><li style="color: rgb(153, 153, 153);">25</li><li style="color: rgb(153, 153, 153);">26</li><li style="color: rgb(153, 153, 153);">27</li><li style="color: rgb(153, 153, 153);">28</li><li style="color: rgb(153, 153, 153);">29</li><li style="color: rgb(153, 153, 153);">30</li><li style="color: rgb(153, 153, 153);">31</li><li style="color: rgb(153, 153, 153);">32</li><li style="color: rgb(153, 153, 153);">33</li><li style="color: rgb(153, 153, 153);">34</li><li style="color: rgb(153, 153, 153);">35</li><li style="color: rgb(153, 153, 153);">36</li><li style="color: rgb(153, 153, 153);">37</li><li style="color: rgb(153, 153, 153);">38</li><li style="color: rgb(153, 153, 153);">39</li><li style="color: rgb(153, 153, 153);">40</li><li style="color: rgb(153, 153, 153);">41</li><li style="color: rgb(153, 153, 153);">42</li><li style="color: rgb(153, 153, 153);">43</li><li style="color: rgb(153, 153, 153);">44</li><li style="color: rgb(153, 153, 153);">45</li><li style="color: rgb(153, 153, 153);">46</li><li style="color: rgb(153, 153, 153);">47</li></ul></pre> 
+<h1><a name="t26"></a><a id="_474"></a>十七、现有模型的使用及修改</h1> 
+<pre data-index="8" class="set-code-hide prettyprint"><code class="prism language-puppet has-numbering" onclick="mdcp.copyCode(event)" style="position: unset;"><span class="token keyword">import</span> torchvision
+
+<p><span class="token comment"># train_data &#x3D; torchvision.datasets.ImageNet(“..&#x2F;data_image_net”, split&#x3D;’train’, download&#x3D;True,</span><br><span class="token comment">#                                            transform&#x3D;torchvision.transforms.ToTensor())</span><br>from torch <span class="token keyword">import</span> nn</p>
+<p>vgg16_false <span class="token operator">&#x3D;</span> torchvision<span class="token punctuation">.</span><span class="token function">models</span><span class="token punctuation">.</span><span class="token function">vgg16</span><span class="token punctuation">(</span>pretrained<span class="token operator">&#x3D;</span>False<span class="token punctuation">)</span><br>vgg16_true <span class="token operator">&#x3D;</span> torchvision<span class="token punctuation">.</span><span class="token function">models</span><span class="token punctuation">.</span><span class="token function">vgg16</span><span class="token punctuation">(</span>pretrained<span class="token operator">&#x3D;</span>True<span class="token punctuation">)</span></p>
+<p><span class="token function">print</span><span class="token punctuation">(</span>vgg16_true<span class="token punctuation">)</span></p>
+<p>train_data <span class="token operator">&#x3D;</span> torchvision<span class="token punctuation">.</span><span class="token function">datasets</span><span class="token punctuation">.</span><span class="token function">CIFAR10</span><span class="token punctuation">(</span><span class="token string">‘..&#x2F;data’</span><span class="token punctuation">,</span> train<span class="token operator">&#x3D;</span>True<span class="token punctuation">,</span> transform<span class="token operator">&#x3D;</span>torchvision<span class="token punctuation">.</span><span class="token function">transforms</span><span class="token punctuation">.</span><span class="token function">ToTensor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>                                          download<span class="token operator">&#x3D;</span>True<span class="token punctuation">)</span></p>
+<p>vgg16_true<span class="token punctuation">.</span><span class="token function">classifier</span><span class="token punctuation">.</span><span class="token function">add_module</span><span class="token punctuation">(</span><span class="token string">‘add_linear’</span><span class="token punctuation">,</span> nn<span class="token punctuation">.</span><span class="token function">Linear</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span><br><span class="token function">print</span><span class="token punctuation">(</span>vgg16_true<span class="token punctuation">)</span></p>
+<p><span class="token function">print</span><span class="token punctuation">(</span>vgg16_false<span class="token punctuation">)</span><br>vgg16_false<span class="token punctuation">.</span><span class="token function">classifier</span><span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">]</span> <span class="token operator">&#x3D;</span> nn<span class="token punctuation">.</span><span class="token function">Linear</span><span class="token punctuation">(</span><span class="token number">4096</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><br><span class="token function">print</span><span class="token punctuation">(</span>vgg16_false<span class="token punctuation">)</span></p>
+<div class="hljs-button &#123;2&#125;" data-title="复制"></div></code><div class="hide-preCode-box"><span class="hide-preCode-bt" data-report-view="{&quot;spm&quot;:&quot;1001.2101.3001.7365&quot;}"><img class="look-more-preCode contentImg-no-view" src="https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png" srcset="/img/loading.gif" lazyload alt="" title=""></span></div><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li><li style="color: rgb(153, 153, 153);">4</li><li style="color: rgb(153, 153, 153);">5</li><li style="color: rgb(153, 153, 153);">6</li><li style="color: rgb(153, 153, 153);">7</li><li style="color: rgb(153, 153, 153);">8</li><li style="color: rgb(153, 153, 153);">9</li><li style="color: rgb(153, 153, 153);">10</li><li style="color: rgb(153, 153, 153);">11</li><li style="color: rgb(153, 153, 153);">12</li><li style="color: rgb(153, 153, 153);">13</li><li style="color: rgb(153, 153, 153);">14</li><li style="color: rgb(153, 153, 153);">15</li><li style="color: rgb(153, 153, 153);">16</li><li style="color: rgb(153, 153, 153);">17</li><li style="color: rgb(153, 153, 153);">18</li><li style="color: rgb(153, 153, 153);">19</li><li style="color: rgb(153, 153, 153);">20</li></ul></pre> 
+<h1><a name="t27"></a><a id="_498"></a>十八、网络模型的保存和修改</h1> 
+<h2><a name="t28"></a><a id="1_501"></a>1.保存</h2> 
+<pre data-index="9" class="set-code-hide prettyprint"><code class="prism language-puppet has-numbering" onclick="mdcp.copyCode(event)" style="position: unset;"><span class="token keyword">import</span> torch
+<span class="token keyword">import</span> torchvision
+from torch <span class="token keyword">import</span> nn
+
+<p>vgg16 <span class="token operator">&#x3D;</span> torchvision<span class="token punctuation">.</span><span class="token function">models</span><span class="token punctuation">.</span><span class="token function">vgg16</span><span class="token punctuation">(</span>pretrained<span class="token operator">&#x3D;</span>False<span class="token punctuation">)</span><br><span class="token comment"># 保存方式1,模型结构+模型参数</span><br>torch<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span>vgg16<span class="token punctuation">,</span> <span class="token string"><span class="token double-quoted">“vgg16_method1.pth”</span></span><span class="token punctuation">)</span></p>
+<p><span class="token comment"># 保存方式2，模型参数（官方推荐）</span><br>torch<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span>vgg16<span class="token punctuation">.</span><span class="token function">state_dict</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string"><span class="token double-quoted">“vgg16_method2.pth”</span></span><span class="token punctuation">)</span></p>
+<p><span class="token comment"># 陷阱</span><br><span class="token keyword">class</span> <span class="token function">Tudui</span><span class="token punctuation">(</span>nn<span class="token punctuation">.</span><span class="token function">Module</span><span class="token punctuation">)</span><span class="token punctuation">:</span><br>    def <span class="token function"><strong>init</strong></span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span><br>        <span class="token function">super</span><span class="token punctuation">(</span>Tudui<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function"><strong>init</strong></span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>        self<span class="token punctuation">.</span><span class="token function">conv1</span> <span class="token operator">&#x3D;</span> nn<span class="token punctuation">.</span><span class="token function">Conv2d</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">64</span><span class="token punctuation">,</span> kernel_size<span class="token operator">&#x3D;</span><span class="token number">3</span><span class="token punctuation">)</span></p>
+<pre><code class="hljs">def &lt;span class=&quot;token function&quot;&gt;forward&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; x&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    x &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;conv1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    return x
+</code></pre>
+<p>tudui <span class="token operator">&#x3D;</span> <span class="token function">Tudui</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>torch<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span>tudui<span class="token punctuation">,</span> <span class="token string"><span class="token double-quoted">“tudui_method1.pth”</span></span><span class="token punctuation">)</span></p>
+<div class="hljs-button {2}" data-title="复制"></div></code><div class="hide-preCode-box"><span class="hide-preCode-bt" data-report-view="{&quot;spm&quot;:&quot;1001.2101.3001.7365&quot;}"><img class="look-more-preCode contentImg-no-view" src="https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png" srcset="/img/loading.gif" lazyload alt="" title=""></span></div><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li><li style="color: rgb(153, 153, 153);">4</li><li style="color: rgb(153, 153, 153);">5</li><li style="color: rgb(153, 153, 153);">6</li><li style="color: rgb(153, 153, 153);">7</li><li style="color: rgb(153, 153, 153);">8</li><li style="color: rgb(153, 153, 153);">9</li><li style="color: rgb(153, 153, 153);">10</li><li style="color: rgb(153, 153, 153);">11</li><li style="color: rgb(153, 153, 153);">12</li><li style="color: rgb(153, 153, 153);">13</li><li style="color: rgb(153, 153, 153);">14</li><li style="color: rgb(153, 153, 153);">15</li><li style="color: rgb(153, 153, 153);">16</li><li style="color: rgb(153, 153, 153);">17</li><li style="color: rgb(153, 153, 153);">18</li><li style="color: rgb(153, 153, 153);">19</li><li style="color: rgb(153, 153, 153);">20</li><li style="color: rgb(153, 153, 153);">21</li><li style="color: rgb(153, 153, 153);">22</li><li style="color: rgb(153, 153, 153);">23</li></ul></pre> 
+<h2><a name="t29"></a><a id="2_527"></a>2.读取</h2> 
+<pre data-index="10" class="set-code-hide prettyprint"><code class="prism language-puppet has-numbering" onclick="mdcp.copyCode(event)" style="position: unset;"><span class="token keyword">import</span> torch
+from model_save <span class="token keyword">import</span> <span class="token operator">*</span>
+<span class="token comment"># 方式1-》保存方式1，加载模型</span>
+<span class="token keyword">import</span> torchvision
+from torch <span class="token keyword">import</span> nn
+
+<p>model <span class="token operator">&#x3D;</span> torch<span class="token punctuation">.</span><span class="token function">load</span><span class="token punctuation">(</span><span class="token string"><span class="token double-quoted">“vgg16_method1.pth”</span></span><span class="token punctuation">)</span><br><span class="token comment"># print(model)</span></p>
+<p><span class="token comment"># 方式2，加载模型</span><br>vgg16 <span class="token operator">&#x3D;</span> torchvision<span class="token punctuation">.</span><span class="token function">models</span><span class="token punctuation">.</span><span class="token function">vgg16</span><span class="token punctuation">(</span>pretrained<span class="token operator">&#x3D;</span>False<span class="token punctuation">)</span><br>vgg16<span class="token punctuation">.</span><span class="token function">load_state_dict</span><span class="token punctuation">(</span>torch<span class="token punctuation">.</span><span class="token function">load</span><span class="token punctuation">(</span><span class="token string"><span class="token double-quoted">“vgg16_method2.pth”</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><br><span class="token comment"># model &#x3D; torch.load(“vgg16_method2.pth”)</span><br><span class="token comment"># print(vgg16)</span></p>
+<p><span class="token comment"># 陷阱1</span><br><span class="token comment"># class Tudui(nn.Module):</span><br><span class="token comment">#     def <strong>init</strong>(self):</span><br><span class="token comment">#         super(Tudui, self).<strong>init</strong>()</span><br><span class="token comment">#         self.conv1 &#x3D; nn.Conv2d(3, 64, kernel_size&#x3D;3)</span><br><span class="token comment">#</span><br><span class="token comment">#     def forward(self, x):</span><br><span class="token comment">#         x &#x3D; self.conv1(x)</span><br><span class="token comment">#         return x</span></p>
+<p>model <span class="token operator">&#x3D;</span> torch<span class="token punctuation">.</span><span class="token function">load</span><span class="token punctuation">(</span><span class="token string">‘tudui_method1.pth’</span><span class="token punctuation">)</span><br><span class="token function">print</span><span class="token punctuation">(</span>model<span class="token punctuation">)</span></p>
+<div class="hljs-button &#123;2&#125;" data-title="复制"></div></code><div class="hide-preCode-box"><span class="hide-preCode-bt" data-report-view="{&quot;spm&quot;:&quot;1001.2101.3001.7365&quot;}"><img class="look-more-preCode contentImg-no-view" src="https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png" srcset="/img/loading.gif" lazyload alt="" title=""></span></div><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li><li style="color: rgb(153, 153, 153);">4</li><li style="color: rgb(153, 153, 153);">5</li><li style="color: rgb(153, 153, 153);">6</li><li style="color: rgb(153, 153, 153);">7</li><li style="color: rgb(153, 153, 153);">8</li><li style="color: rgb(153, 153, 153);">9</li><li style="color: rgb(153, 153, 153);">10</li><li style="color: rgb(153, 153, 153);">11</li><li style="color: rgb(153, 153, 153);">12</li><li style="color: rgb(153, 153, 153);">13</li><li style="color: rgb(153, 153, 153);">14</li><li style="color: rgb(153, 153, 153);">15</li><li style="color: rgb(153, 153, 153);">16</li><li style="color: rgb(153, 153, 153);">17</li><li style="color: rgb(153, 153, 153);">18</li><li style="color: rgb(153, 153, 153);">19</li><li style="color: rgb(153, 153, 153);">20</li><li style="color: rgb(153, 153, 153);">21</li><li style="color: rgb(153, 153, 153);">22</li><li style="color: rgb(153, 153, 153);">23</li><li style="color: rgb(153, 153, 153);">24</li><li style="color: rgb(153, 153, 153);">25</li><li style="color: rgb(153, 153, 153);">26</li><li style="color: rgb(153, 153, 153);">27</li></ul></pre> 
+<p>只用方式2！！！！</p> 
+<h1><a name="t30"></a><a id="_560"></a>十九、完整的模型训练套路</h1> 
+<p><img src="https://img-blog.csdnimg.cn/c2e22acbb0644a24aaf863432d5ce18d.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p> 
+<pre data-index="11" class="set-code-hide prettyprint"><code class="prism language-puppet has-numbering" onclick="mdcp.copyCode(event)" style="position: unset;"><span class="token keyword">import</span> torchvision
+from my_model <span class="token keyword">import</span>  <span class="token operator">*</span>
+from torch<span class="token punctuation">.</span><span class="token function">utils</span><span class="token punctuation">.</span><span class="token function">tensorboard</span> <span class="token keyword">import</span> SummaryWriter
+
+<p><span class="token comment">#准备数据集</span><br>from torch <span class="token keyword">import</span> nn<br>from torch<span class="token punctuation">.</span><span class="token function">utils</span><span class="token punctuation">.</span><span class="token function">data</span> <span class="token keyword">import</span> DataLoader</p>
+<p>train_data <span class="token operator">&#x3D;</span> torchvision<span class="token punctuation">.</span><span class="token function">datasets</span><span class="token punctuation">.</span><span class="token function">CIFAR10</span><span class="token punctuation">(</span>root<span class="token operator">&#x3D;</span><span class="token string"><span class="token double-quoted">“..&#x2F;data”</span></span><span class="token punctuation">,</span>train<span class="token operator">&#x3D;</span>True<span class="token punctuation">,</span>transform<span class="token operator">&#x3D;</span>torchvision<span class="token punctuation">.</span><span class="token function">transforms</span><span class="token punctuation">.</span><span class="token function">ToTensor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>download<span class="token operator">&#x3D;</span>True<span class="token punctuation">)</span><br>test_data <span class="token operator">&#x3D;</span> torchvision<span class="token punctuation">.</span><span class="token function">datasets</span><span class="token punctuation">.</span><span class="token function">CIFAR10</span><span class="token punctuation">(</span>root<span class="token operator">&#x3D;</span><span class="token string"><span class="token double-quoted">“..&#x2F;data”</span></span><span class="token punctuation">,</span>train<span class="token operator">&#x3D;</span>False<span class="token punctuation">,</span>transform<span class="token operator">&#x3D;</span>torchvision<span class="token punctuation">.</span><span class="token function">transforms</span><span class="token punctuation">.</span><span class="token function">ToTensor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>download<span class="token operator">&#x3D;</span>True<span class="token punctuation">)</span></p>
+<p><span class="token comment"># length 长度</span><br>train_data_size <span class="token operator">&#x3D;</span> <span class="token function">len</span><span class="token punctuation">(</span>train_data<span class="token punctuation">)</span><br>test_data_size <span class="token operator">&#x3D;</span> <span class="token function">len</span><span class="token punctuation">(</span>test_data<span class="token punctuation">)</span><br><span class="token comment"># 如果train_data_size&#x3D;10,训练数据集的长度为：10</span><br><span class="token function">print</span><span class="token punctuation">(</span><span class="token string"><span class="token double-quoted">“训练数据集的长度为:&#123;&#125;”</span></span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>train_data_size<span class="token punctuation">)</span><span class="token punctuation">)</span><br><span class="token function">print</span><span class="token punctuation">(</span><span class="token string"><span class="token double-quoted">“测试数据集的长度为:&#123;&#125;”</span></span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>test_data_size<span class="token punctuation">)</span><span class="token punctuation">)</span></p>
+<p><span class="token comment">#利用 DataLoader 来加载数据集</span><br>train_dataloader <span class="token operator">&#x3D;</span> <span class="token function">DataLoader</span><span class="token punctuation">(</span>train_data<span class="token punctuation">,</span>batch_size<span class="token operator">&#x3D;</span><span class="token number">64</span><span class="token punctuation">)</span><br>test_dataloader <span class="token operator">&#x3D;</span> <span class="token function">DataLoader</span><span class="token punctuation">(</span>test_data<span class="token punctuation">,</span>batch_size<span class="token operator">&#x3D;</span><span class="token number">64</span><span class="token punctuation">)</span></p>
+<p><span class="token comment">#创建网络模型</span><br>tudui <span class="token operator">&#x3D;</span> <span class="token function">Tudui</span><span class="token punctuation">(</span><span class="token punctuation">)</span></p>
+<p><span class="token comment">#损失函数</span><br>loss_fn <span class="token operator">&#x3D;</span> nn<span class="token punctuation">.</span><span class="token function">CrossEntropyLoss</span><span class="token punctuation">(</span><span class="token punctuation">)</span></p>
+<p><span class="token comment">#优化器</span><br>learning_rate <span class="token operator">&#x3D;</span> <span class="token number">1e-2</span><br>optimizer <span class="token operator">&#x3D;</span> torch<span class="token punctuation">.</span><span class="token function">optim</span><span class="token punctuation">.</span><span class="token function">SGD</span><span class="token punctuation">(</span>tudui<span class="token punctuation">.</span><span class="token function">parameters</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>lr<span class="token operator">&#x3D;</span>learning_rate<span class="token punctuation">)</span></p>
+<p><span class="token comment">#训练网络的一些参数</span><br><span class="token comment">#记录训练的次数</span><br>total_train_step <span class="token operator">&#x3D;</span> <span class="token number">0</span><br><span class="token comment">#记录测试的次数</span><br>total_test_step <span class="token operator">&#x3D;</span> <span class="token number">0</span><br><span class="token comment">#训练的轮数</span><br>epoch <span class="token operator">&#x3D;</span> <span class="token number">10</span></p>
+<p><span class="token comment">#添加tensorboard</span><br>writer <span class="token operator">&#x3D;</span> <span class="token function">SummaryWriter</span><span class="token punctuation">(</span><span class="token string"><span class="token double-quoted">“..&#x2F;logs_train”</span></span><span class="token punctuation">)</span></p>
+<p>for i <span class="token operator">in</span> <span class="token function">range</span><span class="token punctuation">(</span>epoch<span class="token punctuation">)</span><span class="token punctuation">:</span><br>    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string"><span class="token double-quoted">“———–第&#123;&#125;轮训练开始———–”</span></span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span></p>
+<pre><code class="hljs">&lt;span class=&quot;token comment&quot;&gt;#训练步骤开始&lt;/span&gt;
+tudui&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;train&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+for data &lt;span class=&quot;token operator&quot;&gt;in&lt;/span&gt; train_dataloader&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    imgs&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;targets &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; data
+    outputs &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;tudui&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;imgs&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    loss &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;loss_fn&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;outputs&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;targets&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;#优化器优化模型&lt;/span&gt;
+    optimizer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;zero_grad&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    loss&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;backward&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    optimizer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;step&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    total_train_step &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; total_train_step &lt;span class=&quot;token operator&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;100&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token function&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&lt;span class=&quot;token double-quoted&quot;&gt;&quot;训练次数：&#123;&#125;,Loss:&#123;&#125;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;total_train_step&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;loss&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        writer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;add_scalar&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&lt;span class=&quot;token double-quoted&quot;&gt;&quot;train_loss&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;loss&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;total_train_step&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+
+&lt;span class=&quot;token comment&quot;&gt;# 测试步骤开始&lt;/span&gt;
+tudui&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;eval&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+total_test_loss &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;
+total_accuracy &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;
+with torch&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;no_grad&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    for data &lt;span class=&quot;token operator&quot;&gt;in&lt;/span&gt; test_dataloader&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        imgs&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;targets &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; data
+        outputs &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;tudui&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;imgs&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        loss &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;loss_fn&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;outputs&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;targets&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        total_test_loss &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; loss
+        accuracy &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;outputs&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;argmax&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt;targets&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        total_accuracy &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; accuracy
+&lt;span class=&quot;token function&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&lt;span class=&quot;token double-quoted&quot;&gt;&quot;整体集上的Loss:&#123;&#125;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;total_test_loss&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&lt;span class=&quot;token double-quoted&quot;&gt;&quot;整体数据集上的正确率：&#123;&#125;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;total_accuracy&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;test_data_size&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+writer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;add_scalar&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&lt;span class=&quot;token double-quoted&quot;&gt;&quot;test_loss&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;total_test_loss&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;total_test_step&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+writer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;add_scalar&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&lt;span class=&quot;token double-quoted&quot;&gt;&quot;test_accuracy&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;total_accuracy&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;test_data_size&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;total_test_step&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+total_test_step &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+
+torch&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;tudui&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&lt;span class=&quot;token double-quoted&quot;&gt;&quot;tudui_&#123;&#125;.pth&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;#torch.save(tudui.state_dict(),&quot;tudui_&#123;&#125;&quot;.format(i))&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&lt;span class=&quot;token double-quoted&quot;&gt;&quot;模型已保存&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+</code></pre>
+<p>writer<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span></p>
+<div class="hljs-button {2}" data-title="复制"></div></code><div class="hide-preCode-box"><span class="hide-preCode-bt" data-report-view="{&quot;spm&quot;:&quot;1001.2101.3001.7365&quot;}"><img class="look-more-preCode contentImg-no-view" src="https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png" srcset="/img/loading.gif" lazyload alt="" title=""></span></div><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li><li style="color: rgb(153, 153, 153);">4</li><li style="color: rgb(153, 153, 153);">5</li><li style="color: rgb(153, 153, 153);">6</li><li style="color: rgb(153, 153, 153);">7</li><li style="color: rgb(153, 153, 153);">8</li><li style="color: rgb(153, 153, 153);">9</li><li style="color: rgb(153, 153, 153);">10</li><li style="color: rgb(153, 153, 153);">11</li><li style="color: rgb(153, 153, 153);">12</li><li style="color: rgb(153, 153, 153);">13</li><li style="color: rgb(153, 153, 153);">14</li><li style="color: rgb(153, 153, 153);">15</li><li style="color: rgb(153, 153, 153);">16</li><li style="color: rgb(153, 153, 153);">17</li><li style="color: rgb(153, 153, 153);">18</li><li style="color: rgb(153, 153, 153);">19</li><li style="color: rgb(153, 153, 153);">20</li><li style="color: rgb(153, 153, 153);">21</li><li style="color: rgb(153, 153, 153);">22</li><li style="color: rgb(153, 153, 153);">23</li><li style="color: rgb(153, 153, 153);">24</li><li style="color: rgb(153, 153, 153);">25</li><li style="color: rgb(153, 153, 153);">26</li><li style="color: rgb(153, 153, 153);">27</li><li style="color: rgb(153, 153, 153);">28</li><li style="color: rgb(153, 153, 153);">29</li><li style="color: rgb(153, 153, 153);">30</li><li style="color: rgb(153, 153, 153);">31</li><li style="color: rgb(153, 153, 153);">32</li><li style="color: rgb(153, 153, 153);">33</li><li style="color: rgb(153, 153, 153);">34</li><li style="color: rgb(153, 153, 153);">35</li><li style="color: rgb(153, 153, 153);">36</li><li style="color: rgb(153, 153, 153);">37</li><li style="color: rgb(153, 153, 153);">38</li><li style="color: rgb(153, 153, 153);">39</li><li style="color: rgb(153, 153, 153);">40</li><li style="color: rgb(153, 153, 153);">41</li><li style="color: rgb(153, 153, 153);">42</li><li style="color: rgb(153, 153, 153);">43</li><li style="color: rgb(153, 153, 153);">44</li><li style="color: rgb(153, 153, 153);">45</li><li style="color: rgb(153, 153, 153);">46</li><li style="color: rgb(153, 153, 153);">47</li><li style="color: rgb(153, 153, 153);">48</li><li style="color: rgb(153, 153, 153);">49</li><li style="color: rgb(153, 153, 153);">50</li><li style="color: rgb(153, 153, 153);">51</li><li style="color: rgb(153, 153, 153);">52</li><li style="color: rgb(153, 153, 153);">53</li><li style="color: rgb(153, 153, 153);">54</li><li style="color: rgb(153, 153, 153);">55</li><li style="color: rgb(153, 153, 153);">56</li><li style="color: rgb(153, 153, 153);">57</li><li style="color: rgb(153, 153, 153);">58</li><li style="color: rgb(153, 153, 153);">59</li><li style="color: rgb(153, 153, 153);">60</li><li style="color: rgb(153, 153, 153);">61</li><li style="color: rgb(153, 153, 153);">62</li><li style="color: rgb(153, 153, 153);">63</li><li style="color: rgb(153, 153, 153);">64</li><li style="color: rgb(153, 153, 153);">65</li><li style="color: rgb(153, 153, 153);">66</li><li style="color: rgb(153, 153, 153);">67</li><li style="color: rgb(153, 153, 153);">68</li><li style="color: rgb(153, 153, 153);">69</li><li style="color: rgb(153, 153, 153);">70</li><li style="color: rgb(153, 153, 153);">71</li><li style="color: rgb(153, 153, 153);">72</li><li style="color: rgb(153, 153, 153);">73</li><li style="color: rgb(153, 153, 153);">74</li><li style="color: rgb(153, 153, 153);">75</li><li style="color: rgb(153, 153, 153);">76</li><li style="color: rgb(153, 153, 153);">77</li><li style="color: rgb(153, 153, 153);">78</li><li style="color: rgb(153, 153, 153);">79</li><li style="color: rgb(153, 153, 153);">80</li><li style="color: rgb(153, 153, 153);">81</li><li style="color: rgb(153, 153, 153);">82</li><li style="color: rgb(153, 153, 153);">83</li><li style="color: rgb(153, 153, 153);">84</li><li style="color: rgb(153, 153, 153);">85</li><li style="color: rgb(153, 153, 153);">86</li><li style="color: rgb(153, 153, 153);">87</li><li style="color: rgb(153, 153, 153);">88</li><li style="color: rgb(153, 153, 153);">89</li><li style="color: rgb(153, 153, 153);">90</li><li style="color: rgb(153, 153, 153);">91</li></ul></pre> 
+<h1><a name="t31"></a><a id="GPU_656"></a>二十、利用GPU训练</h1> 
+<p><img src="https://img-blog.csdnimg.cn/022208fc454341fd9bb76b40fb71e7e2.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p> 
+<pre data-index="12" class="set-code-hide prettyprint"><code class="prism language-puppet has-numbering" onclick="mdcp.copyCode(event)" style="position: unset;"><span class="token keyword">import</span> torchvision
+from torch<span class="token punctuation">.</span><span class="token function">utils</span><span class="token punctuation">.</span><span class="token function">tensorboard</span> <span class="token keyword">import</span> SummaryWriter
+<span class="token keyword">import</span> torch
+<span class="token keyword">import</span> time
+
+<p><span class="token comment">#准备数据集</span><br>from torch <span class="token keyword">import</span> nn<br>from torch<span class="token punctuation">.</span><span class="token function">utils</span><span class="token punctuation">.</span><span class="token function">data</span> <span class="token keyword">import</span> DataLoader</p>
+<p>device <span class="token operator">&#x3D;</span> torch<span class="token punctuation">.</span><span class="token function">device</span><span class="token punctuation">(</span><span class="token string"><span class="token double-quoted">“cuda”</span></span><span class="token punctuation">)</span><br>train_data <span class="token operator">&#x3D;</span> torchvision<span class="token punctuation">.</span><span class="token function">datasets</span><span class="token punctuation">.</span><span class="token function">CIFAR10</span><span class="token punctuation">(</span>root<span class="token operator">&#x3D;</span><span class="token string"><span class="token double-quoted">“..&#x2F;data”</span></span><span class="token punctuation">,</span>train<span class="token operator">&#x3D;</span>True<span class="token punctuation">,</span>transform<span class="token operator">&#x3D;</span>torchvision<span class="token punctuation">.</span><span class="token function">transforms</span><span class="token punctuation">.</span><span class="token function">ToTensor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>download<span class="token operator">&#x3D;</span>True<span class="token punctuation">)</span><br>test_data <span class="token operator">&#x3D;</span> torchvision<span class="token punctuation">.</span><span class="token function">datasets</span><span class="token punctuation">.</span><span class="token function">CIFAR10</span><span class="token punctuation">(</span>root<span class="token operator">&#x3D;</span><span class="token string"><span class="token double-quoted">“..&#x2F;data”</span></span><span class="token punctuation">,</span>train<span class="token operator">&#x3D;</span>False<span class="token punctuation">,</span>transform<span class="token operator">&#x3D;</span>torchvision<span class="token punctuation">.</span><span class="token function">transforms</span><span class="token punctuation">.</span><span class="token function">ToTensor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>download<span class="token operator">&#x3D;</span>True<span class="token punctuation">)</span></p>
+<p><span class="token comment"># length 长度</span><br>train_data_size <span class="token operator">&#x3D;</span> <span class="token function">len</span><span class="token punctuation">(</span>train_data<span class="token punctuation">)</span><br>test_data_size <span class="token operator">&#x3D;</span> <span class="token function">len</span><span class="token punctuation">(</span>test_data<span class="token punctuation">)</span><br><span class="token comment"># 如果train_data_size&#x3D;10,训练数据集的长度为：10</span><br><span class="token function">print</span><span class="token punctuation">(</span><span class="token string"><span class="token double-quoted">“训练数据集的长度为:&#123;&#125;”</span></span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>train_data_size<span class="token punctuation">)</span><span class="token punctuation">)</span><br><span class="token function">print</span><span class="token punctuation">(</span><span class="token string"><span class="token double-quoted">“测试数据集的长度为:&#123;&#125;”</span></span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>test_data_size<span class="token punctuation">)</span><span class="token punctuation">)</span></p>
+<p><span class="token comment">#利用 DataLoader 来加载数据集</span><br>train_dataloader <span class="token operator">&#x3D;</span> <span class="token function">DataLoader</span><span class="token punctuation">(</span>train_data<span class="token punctuation">,</span>batch_size<span class="token operator">&#x3D;</span><span class="token number">64</span><span class="token punctuation">)</span><br>test_dataloader <span class="token operator">&#x3D;</span> <span class="token function">DataLoader</span><span class="token punctuation">(</span>test_data<span class="token punctuation">,</span>batch_size<span class="token operator">&#x3D;</span><span class="token number">64</span><span class="token punctuation">)</span></p>
+<p><span class="token comment">#创建网络模型</span><br><span class="token keyword">class</span> <span class="token function">Tudui</span><span class="token punctuation">(</span>nn<span class="token punctuation">.</span><span class="token function">Module</span><span class="token punctuation">)</span><span class="token punctuation">:</span><br>    def <span class="token function"><strong>init</strong></span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span><br>        <span class="token function">super</span><span class="token punctuation">(</span>Tudui<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function"><strong>init</strong></span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>        self<span class="token punctuation">.</span><span class="token function">model</span> <span class="token operator">&#x3D;</span> nn<span class="token punctuation">.</span><span class="token function">Sequential</span><span class="token punctuation">(</span><br>            nn<span class="token punctuation">.</span><span class="token function">Conv2d</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">32</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            nn<span class="token punctuation">.</span><span class="token function">MaxPool2d</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            nn<span class="token punctuation">.</span><span class="token function">Conv2d</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">,</span><span class="token number">32</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            nn<span class="token punctuation">.</span><span class="token function">MaxPool2d</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            nn<span class="token punctuation">.</span><span class="token function">Conv2d</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">,</span><span class="token number">64</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            nn<span class="token punctuation">.</span><span class="token function">MaxPool2d</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            nn<span class="token punctuation">.</span><span class="token function">Flatten</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            nn<span class="token punctuation">.</span><span class="token function">Linear</span><span class="token punctuation">(</span><span class="token number">64</span><span class="token operator"><em></span><span class="token number">4</span><span class="token operator"></em></span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">64</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            nn<span class="token punctuation">.</span><span class="token function">Linear</span><span class="token punctuation">(</span><span class="token number">64</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><br>        <span class="token punctuation">)</span><br>    def <span class="token function">forward</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span><br>        x<span class="token operator">&#x3D;</span>self<span class="token punctuation">.</span><span class="token function">model</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><br>        return x<br>tudui <span class="token operator">&#x3D;</span> <span class="token function">Tudui</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>tudui<span class="token operator">&#x3D;</span>tudui<span class="token punctuation">.</span><span class="token function">to</span><span class="token punctuation">(</span>device<span class="token punctuation">)</span></p>
+<p><span class="token comment">#损失函数</span><br>loss_fn <span class="token operator">&#x3D;</span> nn<span class="token punctuation">.</span><span class="token function">CrossEntropyLoss</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>loss_fn <span class="token operator">&#x3D;</span> loss_fn<span class="token punctuation">.</span><span class="token function">to</span><span class="token punctuation">(</span>device<span class="token punctuation">)</span></p>
+<p><span class="token comment">#优化器</span><br>learning_rate <span class="token operator">&#x3D;</span> <span class="token number">1e-2</span><br>optimizer <span class="token operator">&#x3D;</span> torch<span class="token punctuation">.</span><span class="token function">optim</span><span class="token punctuation">.</span><span class="token function">SGD</span><span class="token punctuation">(</span>tudui<span class="token punctuation">.</span><span class="token function">parameters</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>lr<span class="token operator">&#x3D;</span>learning_rate<span class="token punctuation">)</span></p>
+<p><span class="token comment">#训练网络的一些参数</span><br><span class="token comment">#记录训练的次数</span><br>total_train_step <span class="token operator">&#x3D;</span> <span class="token number">0</span><br><span class="token comment">#记录测试的次数</span><br>total_test_step <span class="token operator">&#x3D;</span> <span class="token number">0</span><br><span class="token comment">#训练的轮数</span><br>epoch <span class="token operator">&#x3D;</span> <span class="token number">10</span></p>
+<p><span class="token comment">#添加tensorboard</span><br>writer <span class="token operator">&#x3D;</span> <span class="token function">SummaryWriter</span><span class="token punctuation">(</span><span class="token string"><span class="token double-quoted">“..&#x2F;logs_train”</span></span><span class="token punctuation">)</span></p>
+<p>start_time<span class="token operator">&#x3D;</span>time<span class="token punctuation">.</span><span class="token function">time</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>for i <span class="token operator">in</span> <span class="token function">range</span><span class="token punctuation">(</span>epoch<span class="token punctuation">)</span><span class="token punctuation">:</span><br>    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string"><span class="token double-quoted">“———–第&#123;&#125;轮训练开始———–”</span></span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span></p>
+<pre><code class="hljs">&lt;span class=&quot;token comment&quot;&gt;#训练步骤开始&lt;/span&gt;
+tudui&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;train&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+for data &lt;span class=&quot;token operator&quot;&gt;in&lt;/span&gt; train_dataloader&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    imgs&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;targets &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; data
+    imgs &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; imgs&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;device&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    targets &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; targets&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;device&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    outputs &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;tudui&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;imgs&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    loss &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;loss_fn&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;outputs&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;targets&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;#优化器优化模型&lt;/span&gt;
+    optimizer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;zero_grad&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    loss&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;backward&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    optimizer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;step&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    total_train_step &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; total_train_step &lt;span class=&quot;token operator&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;100&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        end_time &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; time&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;token function&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;end_time&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;start_time&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;token function&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&lt;span class=&quot;token double-quoted&quot;&gt;&quot;训练次数：&#123;&#125;,Loss:&#123;&#125;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;total_train_step&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;loss&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        writer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;add_scalar&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&lt;span class=&quot;token double-quoted&quot;&gt;&quot;train_loss&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;loss&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;total_train_step&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+
+&lt;span class=&quot;token comment&quot;&gt;# 测试步骤开始&lt;/span&gt;
+tudui&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;eval&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+total_test_loss &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;
+total_accuracy &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;
+with torch&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;no_grad&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    for data &lt;span class=&quot;token operator&quot;&gt;in&lt;/span&gt; test_dataloader&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        imgs&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;targets &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; data
+        imgs &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; imgs&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;device&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        targets &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; targets&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;device&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        outputs &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;tudui&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;imgs&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        loss &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;loss_fn&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;outputs&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;targets&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        total_test_loss &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; loss
+        accuracy &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;outputs&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;argmax&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt;targets&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        total_accuracy &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; accuracy
+&lt;span class=&quot;token function&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&lt;span class=&quot;token double-quoted&quot;&gt;&quot;整体集上的Loss:&#123;&#125;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;total_test_loss&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&lt;span class=&quot;token double-quoted&quot;&gt;&quot;整体数据集上的正确率：&#123;&#125;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;total_accuracy&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;test_data_size&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+writer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;add_scalar&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&lt;span class=&quot;token double-quoted&quot;&gt;&quot;test_loss&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;total_test_loss&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;total_test_step&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+writer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;add_scalar&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&lt;span class=&quot;token double-quoted&quot;&gt;&quot;test_accuracy&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;total_accuracy&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;test_data_size&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;total_test_step&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+total_test_step &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+
+torch&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;tudui&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&lt;span class=&quot;token double-quoted&quot;&gt;&quot;tudui_&#123;&#125;.pth&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;#torch.save(tudui.state_dict(),&quot;tudui_&#123;&#125;&quot;.format(i))&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&lt;span class=&quot;token double-quoted&quot;&gt;&quot;模型已保存&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+</code></pre>
+<p>writer<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span></p>
+<div class="hljs-button {2}" data-title="复制"></div></code><div class="hide-preCode-box"><span class="hide-preCode-bt" data-report-view="{&quot;spm&quot;:&quot;1001.2101.3001.7365&quot;}"><img class="look-more-preCode contentImg-no-view" src="https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png" srcset="/img/loading.gif" lazyload alt="" title=""></span></div><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li><li style="color: rgb(153, 153, 153);">4</li><li style="color: rgb(153, 153, 153);">5</li><li style="color: rgb(153, 153, 153);">6</li><li style="color: rgb(153, 153, 153);">7</li><li style="color: rgb(153, 153, 153);">8</li><li style="color: rgb(153, 153, 153);">9</li><li style="color: rgb(153, 153, 153);">10</li><li style="color: rgb(153, 153, 153);">11</li><li style="color: rgb(153, 153, 153);">12</li><li style="color: rgb(153, 153, 153);">13</li><li style="color: rgb(153, 153, 153);">14</li><li style="color: rgb(153, 153, 153);">15</li><li style="color: rgb(153, 153, 153);">16</li><li style="color: rgb(153, 153, 153);">17</li><li style="color: rgb(153, 153, 153);">18</li><li style="color: rgb(153, 153, 153);">19</li><li style="color: rgb(153, 153, 153);">20</li><li style="color: rgb(153, 153, 153);">21</li><li style="color: rgb(153, 153, 153);">22</li><li style="color: rgb(153, 153, 153);">23</li><li style="color: rgb(153, 153, 153);">24</li><li style="color: rgb(153, 153, 153);">25</li><li style="color: rgb(153, 153, 153);">26</li><li style="color: rgb(153, 153, 153);">27</li><li style="color: rgb(153, 153, 153);">28</li><li style="color: rgb(153, 153, 153);">29</li><li style="color: rgb(153, 153, 153);">30</li><li style="color: rgb(153, 153, 153);">31</li><li style="color: rgb(153, 153, 153);">32</li><li style="color: rgb(153, 153, 153);">33</li><li style="color: rgb(153, 153, 153);">34</li><li style="color: rgb(153, 153, 153);">35</li><li style="color: rgb(153, 153, 153);">36</li><li style="color: rgb(153, 153, 153);">37</li><li style="color: rgb(153, 153, 153);">38</li><li style="color: rgb(153, 153, 153);">39</li><li style="color: rgb(153, 153, 153);">40</li><li style="color: rgb(153, 153, 153);">41</li><li style="color: rgb(153, 153, 153);">42</li><li style="color: rgb(153, 153, 153);">43</li><li style="color: rgb(153, 153, 153);">44</li><li style="color: rgb(153, 153, 153);">45</li><li style="color: rgb(153, 153, 153);">46</li><li style="color: rgb(153, 153, 153);">47</li><li style="color: rgb(153, 153, 153);">48</li><li style="color: rgb(153, 153, 153);">49</li><li style="color: rgb(153, 153, 153);">50</li><li style="color: rgb(153, 153, 153);">51</li><li style="color: rgb(153, 153, 153);">52</li><li style="color: rgb(153, 153, 153);">53</li><li style="color: rgb(153, 153, 153);">54</li><li style="color: rgb(153, 153, 153);">55</li><li style="color: rgb(153, 153, 153);">56</li><li style="color: rgb(153, 153, 153);">57</li><li style="color: rgb(153, 153, 153);">58</li><li style="color: rgb(153, 153, 153);">59</li><li style="color: rgb(153, 153, 153);">60</li><li style="color: rgb(153, 153, 153);">61</li><li style="color: rgb(153, 153, 153);">62</li><li style="color: rgb(153, 153, 153);">63</li><li style="color: rgb(153, 153, 153);">64</li><li style="color: rgb(153, 153, 153);">65</li><li style="color: rgb(153, 153, 153);">66</li><li style="color: rgb(153, 153, 153);">67</li><li style="color: rgb(153, 153, 153);">68</li><li style="color: rgb(153, 153, 153);">69</li><li style="color: rgb(153, 153, 153);">70</li><li style="color: rgb(153, 153, 153);">71</li><li style="color: rgb(153, 153, 153);">72</li><li style="color: rgb(153, 153, 153);">73</li><li style="color: rgb(153, 153, 153);">74</li><li style="color: rgb(153, 153, 153);">75</li><li style="color: rgb(153, 153, 153);">76</li><li style="color: rgb(153, 153, 153);">77</li><li style="color: rgb(153, 153, 153);">78</li><li style="color: rgb(153, 153, 153);">79</li><li style="color: rgb(153, 153, 153);">80</li><li style="color: rgb(153, 153, 153);">81</li><li style="color: rgb(153, 153, 153);">82</li><li style="color: rgb(153, 153, 153);">83</li><li style="color: rgb(153, 153, 153);">84</li><li style="color: rgb(153, 153, 153);">85</li><li style="color: rgb(153, 153, 153);">86</li><li style="color: rgb(153, 153, 153);">87</li><li style="color: rgb(153, 153, 153);">88</li><li style="color: rgb(153, 153, 153);">89</li><li style="color: rgb(153, 153, 153);">90</li><li style="color: rgb(153, 153, 153);">91</li><li style="color: rgb(153, 153, 153);">92</li><li style="color: rgb(153, 153, 153);">93</li><li style="color: rgb(153, 153, 153);">94</li><li style="color: rgb(153, 153, 153);">95</li><li style="color: rgb(153, 153, 153);">96</li><li style="color: rgb(153, 153, 153);">97</li><li style="color: rgb(153, 153, 153);">98</li><li style="color: rgb(153, 153, 153);">99</li><li style="color: rgb(153, 153, 153);">100</li><li style="color: rgb(153, 153, 153);">101</li><li style="color: rgb(153, 153, 153);">102</li><li style="color: rgb(153, 153, 153);">103</li><li style="color: rgb(153, 153, 153);">104</li><li style="color: rgb(153, 153, 153);">105</li><li style="color: rgb(153, 153, 153);">106</li><li style="color: rgb(153, 153, 153);">107</li><li style="color: rgb(153, 153, 153);">108</li><li style="color: rgb(153, 153, 153);">109</li><li style="color: rgb(153, 153, 153);">110</li><li style="color: rgb(153, 153, 153);">111</li><li style="color: rgb(153, 153, 153);">112</li><li style="color: rgb(153, 153, 153);">113</li><li style="color: rgb(153, 153, 153);">114</li><li style="color: rgb(153, 153, 153);">115</li><li style="color: rgb(153, 153, 153);">116</li><li style="color: rgb(153, 153, 153);">117</li><li style="color: rgb(153, 153, 153);">118</li><li style="color: rgb(153, 153, 153);">119</li><li style="color: rgb(153, 153, 153);">120</li><li style="color: rgb(153, 153, 153);">121</li><li style="color: rgb(153, 153, 153);">122</li></ul></pre> 
+<h1><a name="t32"></a><a id="_784"></a>二十一、完整的模型验证套路</h1> 
+<pre data-index="13" class="set-code-hide prettyprint"><code class="prism language-puppet has-numbering" onclick="mdcp.copyCode(event)" style="position: unset;"><span class="token comment"># -*- coding: utf-8 -*-</span>
+<span class="token comment"># 作者：小土堆</span>
+<span class="token comment"># 公众号：土堆碎念</span>
+<span class="token keyword">import</span> torch
+<span class="token keyword">import</span> torchvision
+from PIL <span class="token keyword">import</span> Image
+from torch <span class="token keyword">import</span> nn
+
+<p>image_path <span class="token operator">&#x3D;</span> <span class="token string"><span class="token double-quoted">“..&#x2F;imgs&#x2F;airplane.png”</span></span><br>image <span class="token operator">&#x3D;</span> Image<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span>image_path<span class="token punctuation">)</span><br><span class="token function">print</span><span class="token punctuation">(</span>image<span class="token punctuation">)</span><br>image <span class="token operator">&#x3D;</span> image<span class="token punctuation">.</span><span class="token function">convert</span><span class="token punctuation">(</span><span class="token string">‘RGB’</span><span class="token punctuation">)</span>    <span class="token comment"># 因为png格式是四通道，除了RGB三通道外，还有一个透明度通道，</span><br><span class="token comment"># 调用convert保留其颜色通道。当然，如果图片本来就是三个颜色通道，经此操作，不变。加上这一步可以适应png jpg各种格式的图片</span><br>transform <span class="token operator">&#x3D;</span> torchvision<span class="token punctuation">.</span><span class="token function">transforms</span><span class="token punctuation">.</span><span class="token function">Compose</span><span class="token punctuation">(</span><span class="token punctuation">[</span>torchvision<span class="token punctuation">.</span><span class="token function">transforms</span><span class="token punctuation">.</span><span class="token function">Resize</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">,</span> <span class="token number">32</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>                                            torchvision<span class="token punctuation">.</span><span class="token function">transforms</span><span class="token punctuation">.</span><span class="token function">ToTensor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span></p>
+<p>image <span class="token operator">&#x3D;</span> <span class="token function">transform</span><span class="token punctuation">(</span>image<span class="token punctuation">)</span><br><span class="token function">print</span><span class="token punctuation">(</span>image<span class="token punctuation">.</span><span class="token function">shape</span><span class="token punctuation">)</span></p>
+<p><span class="token keyword">class</span> <span class="token function">Tudui</span><span class="token punctuation">(</span>nn<span class="token punctuation">.</span><span class="token function">Module</span><span class="token punctuation">)</span><span class="token punctuation">:</span><br>    def <span class="token function"><strong>init</strong></span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span><br>        <span class="token function">super</span><span class="token punctuation">(</span>Tudui<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function"><strong>init</strong></span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>        self<span class="token punctuation">.</span><span class="token function">model</span> <span class="token operator">&#x3D;</span> nn<span class="token punctuation">.</span><span class="token function">Sequential</span><span class="token punctuation">(</span><br>            nn<span class="token punctuation">.</span><span class="token function">Conv2d</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">32</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            nn<span class="token punctuation">.</span><span class="token function">MaxPool2d</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            nn<span class="token punctuation">.</span><span class="token function">Conv2d</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">,</span> <span class="token number">32</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            nn<span class="token punctuation">.</span><span class="token function">MaxPool2d</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            nn<span class="token punctuation">.</span><span class="token function">Conv2d</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">,</span> <span class="token number">64</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            nn<span class="token punctuation">.</span><span class="token function">MaxPool2d</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            nn<span class="token punctuation">.</span><span class="token function">Flatten</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            nn<span class="token punctuation">.</span><span class="token function">Linear</span><span class="token punctuation">(</span><span class="token number">64</span><span class="token operator"><em></span><span class="token number">4</span><span class="token operator"></em></span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">64</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            nn<span class="token punctuation">.</span><span class="token function">Linear</span><span class="token punctuation">(</span><span class="token number">64</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><br>        <span class="token punctuation">)</span></p>
+<pre><code class="hljs">def &lt;span class=&quot;token function&quot;&gt;forward&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; x&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    x &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    return x
+</code></pre>
+<p>model <span class="token operator">&#x3D;</span> torch<span class="token punctuation">.</span><span class="token function">load</span><span class="token punctuation">(</span><span class="token string"><span class="token double-quoted">“tudui_29_gpu.pth”</span></span><span class="token punctuation">,</span> map_location<span class="token operator">&#x3D;</span>torch<span class="token punctuation">.</span><span class="token function">device</span><span class="token punctuation">(</span><span class="token string">‘cpu’</span><span class="token punctuation">)</span><span class="token punctuation">)</span><br><span class="token function">print</span><span class="token punctuation">(</span>model<span class="token punctuation">)</span><br>image <span class="token operator">&#x3D;</span> torch<span class="token punctuation">.</span><span class="token function">reshape</span><span class="token punctuation">(</span>image<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">32</span><span class="token punctuation">,</span> <span class="token number">32</span><span class="token punctuation">)</span><span class="token punctuation">)</span><br>model<span class="token punctuation">.</span><span class="token function">eval</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>with torch<span class="token punctuation">.</span><span class="token function">no_grad</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span><br>    output <span class="token operator">&#x3D;</span> <span class="token function">model</span><span class="token punctuation">(</span>image<span class="token punctuation">)</span><br><span class="token function">print</span><span class="token punctuation">(</span>output<span class="token punctuation">)</span></p>
+<p><span class="token function">print</span><span class="token punctuation">(</span>output<span class="token punctuation">.</span><span class="token function">argmax</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span></p>
+<div class="hljs-button {2}" data-title="复制"></div></code><div class="hide-preCode-box"><span class="hide-preCode-bt" data-report-view="{&quot;spm&quot;:&quot;1001.2101.3001.7365&quot;}"><img class="look-more-preCode contentImg-no-view" src="https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png" srcset="/img/loading.gif" lazyload alt="" title=""></span></div><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li><li style="color: rgb(153, 153, 153);">4</li><li style="color: rgb(153, 153, 153);">5</li><li style="color: rgb(153, 153, 153);">6</li><li style="color: rgb(153, 153, 153);">7</li><li style="color: rgb(153, 153, 153);">8</li><li style="color: rgb(153, 153, 153);">9</li><li style="color: rgb(153, 153, 153);">10</li><li style="color: rgb(153, 153, 153);">11</li><li style="color: rgb(153, 153, 153);">12</li><li style="color: rgb(153, 153, 153);">13</li><li style="color: rgb(153, 153, 153);">14</li><li style="color: rgb(153, 153, 153);">15</li><li style="color: rgb(153, 153, 153);">16</li><li style="color: rgb(153, 153, 153);">17</li><li style="color: rgb(153, 153, 153);">18</li><li style="color: rgb(153, 153, 153);">19</li><li style="color: rgb(153, 153, 153);">20</li><li style="color: rgb(153, 153, 153);">21</li><li style="color: rgb(153, 153, 153);">22</li><li style="color: rgb(153, 153, 153);">23</li><li style="color: rgb(153, 153, 153);">24</li><li style="color: rgb(153, 153, 153);">25</li><li style="color: rgb(153, 153, 153);">26</li><li style="color: rgb(153, 153, 153);">27</li><li style="color: rgb(153, 153, 153);">28</li><li style="color: rgb(153, 153, 153);">29</li><li style="color: rgb(153, 153, 153);">30</li><li style="color: rgb(153, 153, 153);">31</li><li style="color: rgb(153, 153, 153);">32</li><li style="color: rgb(153, 153, 153);">33</li><li style="color: rgb(153, 153, 153);">34</li><li style="color: rgb(153, 153, 153);">35</li><li style="color: rgb(153, 153, 153);">36</li><li style="color: rgb(153, 153, 153);">37</li><li style="color: rgb(153, 153, 153);">38</li><li style="color: rgb(153, 153, 153);">39</li><li style="color: rgb(153, 153, 153);">40</li><li style="color: rgb(153, 153, 153);">41</li><li style="color: rgb(153, 153, 153);">42</li><li style="color: rgb(153, 153, 153);">43</li><li style="color: rgb(153, 153, 153);">44</li><li style="color: rgb(153, 153, 153);">45</li><li style="color: rgb(153, 153, 153);">46</li><li style="color: rgb(153, 153, 153);">47</li><li style="color: rgb(153, 153, 153);">48</li></ul></pre> 
+<hr> 
+<h1><a name="t33"></a><a id="_839"></a>总结</h1> 
+<p>。</p>
+                </div><div data-report-view="{&quot;mod&quot;:&quot;1585297308_001&quot;,&quot;spm&quot;:&quot;1001.2101.3001.6548&quot;,&quot;dest&quot;:&quot;https://blog.csdn.net/qq_44428997/article/details/127117489&quot;,&quot;extend1&quot;:&quot;pc&quot;,&quot;ab&quot;:&quot;new&quot;}"><div></div></div>
+                <link href="https://csdnimg.cn/release/blogv2/dist/mdeditor/css/editerView/markdown_views-98b95bb57c.css" rel="stylesheet">
+                <link href="https://csdnimg.cn/release/blogv2/dist/mdeditor/css/style-c216769e99.css" rel="stylesheet">
+        </div>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>PyTorch完整笔记</div>
+      <div>http://example.com/2023/08/09/PyTorch完整笔记/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>hhy</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年8月9日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/08/09/pytorch%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A02-Tensorboard%E7%9A%84%E4%BD%BF%E7%94%A8/" title="pytorch深度学习2: Tensorboard的使用">
+                        <span class="hidden-mobile">pytorch深度学习2: Tensorboard的使用</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+<div>
+  <span id="timeDate">载入天数...</span>
+  <span id="times">载入时分秒...</span>
+  <script>
+  var now = new Date();
+  function createtime(){
+      var grt= new Date("08/06/2023 12:00:00");//此处修改你的建站时间或者网站上线时间
+      now.setTime(now.getTime()+250);
+      days = (now - grt ) / 1000 / 60 / 60 / 24;
+      dnum = Math.floor(days);
+      hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+      hnum = Math.floor(hours);
+      if(String(hnum).length ==1 ){
+          hnum = "0" + hnum;
+      }
+      minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+      mnum = Math.floor(minutes);
+      if(String(mnum).length ==1 ){
+                mnum = "0" + mnum;
+      }
+      seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+      snum = Math.round(seconds);
+      if(String(snum).length ==1 ){
+                snum = "0" + snum;
+      }
+      document.getElementById("timeDate").innerHTML = "🚀 for&nbsp"+dnum+"&nbspdays";  //此次自定义显示内容
+      document.getElementById("times").innerHTML = hnum + "&nbsphr&nbsp" + mnum + "&nbspmin&nbsp" + snum + "&nbspsec";
+  }  //此次自定义显示内容
+  setInterval("createtime()",250);
+  </script>
+</div>
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
